@@ -15,7 +15,7 @@ int main(int argc, char** argv )
     image = imread( argv[1], 1 );
 	cvtColor(image,image_gray,CV_RGB2GRAY);
 
-    if ( !image.data )
+    if ( !image.data )  
     {
         printf("No image data \n");
         return -1;
