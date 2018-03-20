@@ -1,0 +1,61 @@
+module PipeEM(
+    input clk,
+
+	 input MuxDirWriteIN,
+	 input MuxDirMemIN,
+	 input MuxDatoIN,
+	 input WriteMemIN,
+	 input WriteRegIN,
+	 
+	 input [31:0] DirMemCargaIN,
+	 input [31:0] DatoResultIN,
+	 input [4:0] DirWriteIN,
+	 
+	 //-------------------------
+	 output MuxDirWriteOUT,
+	 output MuxDirMemOUT,
+	 output MuxDatoOUT,
+	 output WriteMemOUT,
+	 output WriteRegOUT,
+	 
+	 output [31:0] DirMemCargaOUT,
+	 output [31:0] DatoResultOUT,
+	 output [4:0] DirWriteOUT
+);
+
+	 reg MuxDirWriteTMP;
+	 reg MuxDirMemTMP;
+	 reg MuxDatoTMP;
+	 reg WriteMemTMP;
+	 reg WriteRegTMP;
+	 
+	 reg [31:0] DirMemCargaTMP;
+	 reg [31:0] DatoResultTMP;
+	 reg [4:0] DirWriteTMP;
+
+always @(posedge clk)
+begin
+	 
+	 MuxDirWriteTMP = MuxDirWriteIN;
+	 MuxDirMemTMP = MuxDirMemIN;
+	 MuxDatoTMP = MuxDatoIN;
+	 WriteMemTMP = WriteMemIN;
+	 WriteRegTMP = WriteRegIN;
+	 
+	 DirMemCargaTMP = DirMemCargaIN;
+	 DatoResultTMP = DatoResultIN;
+	 DirWriteTMP = DirWriteIN;
+	
+end
+
+	 assign MuxDirWriteOUT = MuxDirWriteTMP;
+	 assign MuxDirMemOUT = MuxDirMemTMP;
+	 assign MuxDatoOUT = MuxDatoTMP;
+	 assign WriteMemOUT = WriteMemTMP;
+	 assign WriteRegOUT = WriteRegTMP;
+	 
+	 assign DirMemCargaIN = DirMemCargaTMP;
+	 assign DatoResultIN = DatoResultTMP;
+	 assign DirWriteOUT = DirWriteTMP;
+	 
+endmodule

@@ -1,0 +1,9 @@
+module S_CPU(
+	input wire clk
+);
+
+wire [31:0] pcout;
+wire [31:0] newpc;
+PC pc(clk,newpc,pcout);
+
+endmodule

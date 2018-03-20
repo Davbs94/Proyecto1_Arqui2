@@ -1,0 +1,36 @@
+module ControlUnit(
+	 input clk,
+    input [4:0] Opcode,
+	 input [1:0] Flags,
+	 
+	 output MuxDireccionPC,
+	 output crtlMuxValA,
+	 output crtlMuxValB,
+	 output FlagsActualizacionIN,
+	 output [2:0] CodigoALUIN,
+	 output [1:0] MuxResultIN,
+	 output MuxDirWriteIN,
+	 output MuxDirMemIN,
+	 output MuxDatoIN,
+	 output WriteMemIN,
+	 output WriteRegIN,
+    );
+
+initial begin
+	 MuxDireccionPC <= 0;
+	 crtlMuxValA <= 0;
+	 crtlMuxValB <= 0;
+	 FlagsActualizacionIN <= 0;
+	 [2:0] CodigoALUIN <= 3'b000;
+	 [1:0] MuxResultIN <= 2'b00;
+	 MuxDirWriteIN <= 0;
+	 MuxDirMemIN <= 1;
+	 MuxDatoIN <= 0;
+	 WriteMemIN <= 0;
+	 WriteRegIN <= 0;
+end
+
+always @(Cond or Op or Funct or Flags or MulFlag)
+begin
+end
+endmodule

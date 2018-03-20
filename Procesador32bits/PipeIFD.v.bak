@@ -1,0 +1,37 @@
+module IFD_Pipeline(
+    input clk,
+    input [31:0] InstructionIN,
+	 output [4:0] OpCodeOUT,
+	 output [15:0] DireccionOUT,
+	 output [4:0] DirRegAOUT,
+	 output [4:0] DirRegBOUT,
+	 output [16:0] InmCorrimOUT,
+	 output [4:0] DirWriteOUT
+);
+
+	 wire [4:0] OpCodeTMP;
+	 wire [15:0] DireccionTMP;
+	 wire [4:0] DirRegATMP;
+	 wire [4:0] DirRegBTMP;
+	 wire [16:0] InmCorrimTMP;
+	 wire [4:0] DirWriteTMP;
+
+always @(posedge clk)
+begin
+	OpCodeTMP <= InstructionIN[31:27];
+	DireccionTMP <= InstructionIN[15:0];
+	DirRegATMP <= InstructionIN[21:17];
+	DirRegBTMP <= InstructionIN[16:12];
+	InmCorrimTMP <= InstructionIN[16:0];
+	DirWriteTMP <= InstructionIN[26:22];
+	
+end
+
+	 assign OpCodeOUT = OpCodeTMP;
+	 assign DireccionOUT = DireccionTMP;
+	 assign DirRegAOUT = DirRegATMP;
+	 assign DirRegBOUT = DirRegBTMP;
+	 assign InmCorrimOUT = InmCorrimTMP;
+	 assign DirWriteOUT = DirWriteTMP;
+	 
+endmodule

@@ -1,0 +1,80 @@
+module tester(
+    input clk,
+    input [4:0] switch_select,
+    output reg [31:0] led_Reg
+    );
+
+	 
+	 wire [31:0] Reg0;
+	 wire [31:0] Reg1;
+	 wire [31:0] Reg2;
+	 wire [31:0] Reg3;
+	 wire [31:0] Reg4;
+	 wire [31:0] Reg5;
+	 wire [31:0] Reg6;
+	 wire [31:0] Reg7;
+	 wire [31:0] Reg8;
+	 wire [31:0] Reg9; 
+	 wire [31:0] Reg10;
+	 wire [31:0] Reg11;
+	 wire [31:0] Reg12;
+	 wire [31:0] Reg13;
+	 wire [31:0] Reg14;
+	 wire [31:0] Reg15;
+	 wire [31:0] Reg16;
+	 wire [31:0] Reg17;
+	 wire [31:0] Reg18;
+	 wire [31:0] Reg19; 
+	 wire [31:0] Reg20;
+	 wire [31:0] Reg21;
+	 wire [31:0] Reg22;
+	 wire [31:0] Reg23;
+	 wire [31:0] Reg24;
+	 wire [31:0] Reg25;
+	 wire [31:0] Reg26;
+	 wire [31:0] Reg27;
+	 wire [31:0] Reg28;
+	 wire [31:0] Reg29; 
+	 wire [31:0] Reg30;
+	 wire [31:0] Reg31;
+	 
+always(*)
+begin 
+	case(switch_select)
+		5'd0: led_Reg <= Reg0;
+		5'd1: led_Reg <= Reg1;
+		5'd2: led_Reg <= Reg2;
+		5'd3: led_Reg <= Reg3;
+		5'd4: led_Reg <= Reg4;
+		5'd5: led_Reg <= Reg5;
+		5'd6: led_Reg <= Reg6;
+		5'd7: led_Reg <= Reg7;
+		5'd8: led_Reg <= Reg8;
+		5'd9: led_Reg <= Reg9;
+		5'd10: led_Reg <= Reg10;
+		5'd11: led_Reg <= Reg11;
+		5'd12: led_Reg <= Reg12;
+		5'd13: led_Reg <= Reg13;
+		5'd14: led_Reg <= Reg14;
+		5'd15: led_Reg <= Reg15;
+		5'd16: led_Reg <= Reg16;
+		5'd17: led_Reg <= Reg17;
+		5'd18: led_Reg <= Reg18;
+		5'd19: led_Reg <= Reg19;
+		5'd20: led_Reg <= Reg20;
+		5'd21: led_Reg <= Reg21;
+		5'd22: led_Reg <= Reg22;
+		5'd23: led_Reg <= Reg23;
+		5'd24: led_Reg <= Reg24;
+		5'd25: led_Reg <= Reg25;
+		5'd26: led_Reg <= Reg26;
+		5'd27: led_Reg <= Reg27;
+		5'd28: led_Reg <= Reg28;
+		5'd29: led_Reg <= Reg29;
+		5'd30: led_Reg <= Reg30;
+		5'd31: led_Reg <= Reg31;
+		
+	endcase
+end
+
+endmodule

@@ -1,0 +1,42 @@
+module PipeDE(
+	 input [31:0] D0IN,
+	 input [31:0] D1IN,
+	 input [31:0] D2IN,
+	 input [31:0] D3IN,
+	 input [31:0] D4IN,
+	 input [31:0] D5IN,
+	 input [31:0] D6IN,
+	 input [31:0] D7IN,
+	 input [31:0] D8IN,
+	 input [31:0] D9IN,
+	 input [31:0] D10IN,
+	 input [31:0] D11IN,
+	 input [31:0] D12IN,
+	 input [31:0] D13IN,
+	 input [31:0] D14IN,
+	 input [31:0] D15IN,
+	 input [31:0] D16IN,
+	 input [31:0] D17IN,
+	 input [31:0] D18IN,
+	 input [31:0] D19IN,
+	 input [31:0] D20IN,
+	 input [31:0] D21IN,
+	 input [31:0] D22IN,
+	 input [31:0] D23IN,
+	 input [31:0] D24IN,
+
+	 output [31:0] D25OUT
+);
+
+always@(*)
+begin
+
+if(CtrlFunc == 3'b000) //AND
+	Result <= A & B;
+	
+else if(CtrlFunc == 3'b101) //OR
+	Result <= A | B;
+
+end
+
+endmodule

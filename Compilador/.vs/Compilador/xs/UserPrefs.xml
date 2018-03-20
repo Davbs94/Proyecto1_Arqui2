@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{1D054F9A-6020-4209-A978-2605FE3C67BE}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Compilador/Compilador_ASM.cs">
+    <Files>
+      <File FileName="Compilador/Program.cs" Line="1" Column="1" />
+      <File FileName="Compilador/Compilador_ASM.cs" Line="63" Column="164" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Compilador PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>

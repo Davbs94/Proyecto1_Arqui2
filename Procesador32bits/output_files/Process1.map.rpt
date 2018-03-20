@@ -1,0 +1,1545 @@
+Analysis & Synthesis report for Process1
+Tue Oct 17 02:18:45 2017
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. Analysis & Synthesis IP Cores Summary
+ 11. User-Specified and Inferred Latches
+ 12. Registers Removed During Synthesis
+ 13. Removed Registers Triggering Further Register Optimizations
+ 14. General Register Statistics
+ 15. Registers Added for RAM Pass-Through Logic
+ 16. Registers Packed Into Inferred Megafunctions
+ 17. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 18. Source assignments for CPU:cpu|MemInst:memInst|altsyncram:altsyncram_component|altsyncram_6bf1:auto_generated
+ 19. Source assignments for CPU:cpu|MemDatos:memDatos|altsyncram:altsyncram_component|altsyncram_rhn1:auto_generated
+ 20. Source assignments for CPU:cpu|RegisterBank:registerBank|altsyncram:RF_rtl_0|altsyncram_u2n1:auto_generated
+ 21. Parameter Settings for User Entity Instance: Top-level Entity: |Tester
+ 22. Parameter Settings for User Entity Instance: clock_divider:DIV1
+ 23. Parameter Settings for User Entity Instance: CPU:cpu|MemInst:memInst|altsyncram:altsyncram_component
+ 24. Parameter Settings for User Entity Instance: CPU:cpu|MemDatos:memDatos|altsyncram:altsyncram_component
+ 25. Parameter Settings for Inferred Entity Instance: CPU:cpu|RegisterBank:registerBank|altsyncram:RF_rtl_0
+ 26. Parameter Settings for Inferred Entity Instance: seven_segments:sevenSegs1|lpm_divide:Mod0
+ 27. Parameter Settings for Inferred Entity Instance: seven_segments:sevenSegs1|lpm_divide:Mod1
+ 28. Parameter Settings for Inferred Entity Instance: seven_segments:sevenSegs1|lpm_divide:Div0
+ 29. Parameter Settings for Inferred Entity Instance: seven_segments:sevenSegs1|lpm_divide:Mod2
+ 30. Parameter Settings for Inferred Entity Instance: seven_segments:sevenSegs1|lpm_divide:Div1
+ 31. altsyncram Parameter Settings by Entity Instance
+ 32. Port Connectivity Checks: "CPU:cpu|MemDatos:memDatos"
+ 33. Port Connectivity Checks: "CPU:cpu|Mux2x1:muxDirMem"
+ 34. Port Connectivity Checks: "CPU:cpu|PipeEM:pipeEm"
+ 35. Port Connectivity Checks: "CPU:cpu|Mux2x1:muxDirW"
+ 36. Port Connectivity Checks: "CPU:cpu|PipeDE:pipeDE"
+ 37. Port Connectivity Checks: "CPU:cpu|Mux2x1:muxDirRegB"
+ 38. Port Connectivity Checks: "CPU:cpu|Adder:pcplus4"
+ 39. Port Connectivity Checks: "CPU:cpu|PipeIFD:pipeIFD"
+ 40. Port Connectivity Checks: "CPU:cpu|MemInst:memInst"
+ 41. Port Connectivity Checks: "CPU:cpu"
+ 42. Post-Synthesis Netlist Statistics for Top Partition
+ 43. Elapsed Time Per Partition
+ 44. Analysis & Synthesis Messages
+ 45. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Oct 17 02:18:45 2017       ;
+; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name                   ; Process1                                    ;
+; Top-level Entity Name           ; Tester                                      ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 1306                                        ;
+; Total pins                      ; 22                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 2,622,464                                   ;
+; Total DSP Blocks                ; 2                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; Tester             ; Process1           ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                               ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                        ;
++----------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                          ; Library ;
++----------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------------+---------+
+; PC.v                             ; yes             ; User Verilog HDL File                  ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/PC.v                                  ;         ;
+; RegisterBank.v                   ; yes             ; User Verilog HDL File                  ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/RegisterBank.v                        ;         ;
+; Mux2x1.v                         ; yes             ; User Verilog HDL File                  ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/Mux2x1.v                              ;         ;
+; Mux4x1.v                         ; yes             ; User Verilog HDL File                  ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/Mux4x1.v                              ;         ;
+; Adder.v                          ; yes             ; User Verilog HDL File                  ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/Adder.v                               ;         ;
+; ALU.v                            ; yes             ; User Verilog HDL File                  ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/ALU.v                                 ;         ;
+; ROM.mif                          ; yes             ; User Memory Initialization File        ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/ROM.mif                               ;         ;
+; MemInst.v                        ; yes             ; User Wizard-Generated File             ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/MemInst.v                             ;         ;
+; PipeIFD.v                        ; yes             ; User Verilog HDL File                  ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/PipeIFD.v                             ;         ;
+; PipeDE.v                         ; yes             ; User Verilog HDL File                  ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/PipeDE.v                              ;         ;
+; PipeEM.v                         ; yes             ; User Verilog HDL File                  ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/PipeEM.v                              ;         ;
+; PipeWB.v                         ; yes             ; User Verilog HDL File                  ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/PipeWB.v                              ;         ;
+; CPU.v                            ; yes             ; User Verilog HDL File                  ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v                                 ;         ;
+; ControlUnit.v                    ; yes             ; User Verilog HDL File                  ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/ControlUnit.v                         ;         ;
+; Tester.v                         ; yes             ; User Verilog HDL File                  ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/Tester.v                              ;         ;
+; clock_divider.v                  ; yes             ; User Verilog HDL File                  ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/clock_divider.v                       ;         ;
+; output_files/seven_segments.v    ; yes             ; User Verilog HDL File                  ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v         ;         ;
+; MemDatos.v                       ; yes             ; User Wizard-Generated File             ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/MemDatos.v                            ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; d:/programs/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                           ; d:/programs/intelfpga_lite/16.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                           ; d:/programs/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                           ; d:/programs/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal161.inc                   ; yes             ; Megafunction                           ; d:/programs/intelfpga_lite/16.1/quartus/libraries/megafunctions/aglobal161.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                           ; d:/programs/intelfpga_lite/16.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                           ; d:/programs/intelfpga_lite/16.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                           ; d:/programs/intelfpga_lite/16.1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                           ; d:/programs/intelfpga_lite/16.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_6bf1.tdf           ; yes             ; Auto-Generated Megafunction            ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/altsyncram_6bf1.tdf                ;         ;
+; db/decode_61a.tdf                ; yes             ; Auto-Generated Megafunction            ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/decode_61a.tdf                     ;         ;
+; db/mux_ahb.tdf                   ; yes             ; Auto-Generated Megafunction            ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/mux_ahb.tdf                        ;         ;
+; db/altsyncram_rhn1.tdf           ; yes             ; Auto-Generated Megafunction            ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/altsyncram_rhn1.tdf                ;         ;
+; ram.mif                          ; yes             ; Auto-Found Memory Initialization File  ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/ram.mif                               ;         ;
+; db/decode_dla.tdf                ; yes             ; Auto-Generated Megafunction            ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/decode_dla.tdf                     ;         ;
+; db/mux_tfb.tdf                   ; yes             ; Auto-Generated Megafunction            ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/mux_tfb.tdf                        ;         ;
+; db/altsyncram_u2n1.tdf           ; yes             ; Auto-Generated Megafunction            ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/altsyncram_u2n1.tdf                ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                           ; d:/programs/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_divide.tdf        ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                           ; d:/programs/intelfpga_lite/16.1/quartus/libraries/megafunctions/abs_divider.inc       ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                           ; d:/programs/intelfpga_lite/16.1/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;
+; db/lpm_divide_l3m.tdf            ; yes             ; Auto-Generated Megafunction            ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/lpm_divide_l3m.tdf                 ;         ;
+; db/sign_div_unsign_olh.tdf       ; yes             ; Auto-Generated Megafunction            ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/sign_div_unsign_olh.tdf            ;         ;
+; db/alt_u_div_mve.tdf             ; yes             ; Auto-Generated Megafunction            ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/alt_u_div_mve.tdf                  ;         ;
+; db/lpm_divide_42m.tdf            ; yes             ; Auto-Generated Megafunction            ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/lpm_divide_42m.tdf                 ;         ;
+; db/sign_div_unsign_7kh.tdf       ; yes             ; Auto-Generated Megafunction            ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/sign_div_unsign_7kh.tdf            ;         ;
+; db/alt_u_div_kse.tdf             ; yes             ; Auto-Generated Megafunction            ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/alt_u_div_kse.tdf                  ;         ;
+; db/lpm_divide_ibm.tdf            ; yes             ; Auto-Generated Megafunction            ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/lpm_divide_ibm.tdf                 ;         ;
+; db/lpm_divide_lbm.tdf            ; yes             ; Auto-Generated Megafunction            ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/lpm_divide_lbm.tdf                 ;         ;
+; db/sign_div_unsign_rlh.tdf       ; yes             ; Auto-Generated Megafunction            ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/sign_div_unsign_rlh.tdf            ;         ;
+; db/alt_u_div_sve.tdf             ; yes             ; Auto-Generated Megafunction            ; D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/alt_u_div_sve.tdf                  ;         ;
++----------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                    ;
++---------------------------------------------+----------------------------------+
+; Resource                                    ; Usage                            ;
++---------------------------------------------+----------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 1555                             ;
+;                                             ;                                  ;
+; Combinational ALUT usage for logic          ; 2326                             ;
+;     -- 7 input functions                    ; 19                               ;
+;     -- 6 input functions                    ; 508                              ;
+;     -- 5 input functions                    ; 134                              ;
+;     -- 4 input functions                    ; 213                              ;
+;     -- <=3 input functions                  ; 1452                             ;
+;                                             ;                                  ;
+; Dedicated logic registers                   ; 1306                             ;
+;                                             ;                                  ;
+; I/O pins                                    ; 22                               ;
+; Total MLAB memory bits                      ; 0                                ;
+; Total block memory bits                     ; 2622464                          ;
+;                                             ;                                  ;
+; Total DSP Blocks                            ; 2                                ;
+;                                             ;                                  ;
+; Maximum fan-out node                        ; clock_divider:DIV1|divcounter[8] ;
+; Maximum fan-out                             ; 1651                             ;
+; Total fan-out                               ; 17872                            ;
+; Average fan-out                             ; 4.43                             ;
++---------------------------------------------+----------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                            ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                               ; Entity Name         ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |Tester                                      ; 2326 (0)            ; 1306 (0)                  ; 2622464           ; 2          ; 22   ; 0            ; |Tester                                                                                                                           ; Tester              ; work         ;
+;    |CPU:cpu|                                 ; 849 (0)             ; 1297 (0)                  ; 2622464           ; 2          ; 0    ; 0            ; |Tester|CPU:cpu                                                                                                                   ; CPU                 ; work         ;
+;       |ALU:alu|                              ; 220 (220)           ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |Tester|CPU:cpu|ALU:alu                                                                                                           ; ALU                 ; work         ;
+;       |Adder:pcplus4|                        ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|Adder:pcplus4                                                                                                     ; Adder               ; work         ;
+;       |ControlUnit:unidadControl|            ; 21 (21)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|ControlUnit:unidadControl                                                                                         ; ControlUnit         ; work         ;
+;       |MemDatos:memDatos|                    ; 16 (0)              ; 6 (0)                     ; 524288            ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|MemDatos:memDatos                                                                                                 ; MemDatos            ; work         ;
+;          |altsyncram:altsyncram_component|   ; 16 (0)              ; 6 (0)                     ; 524288            ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|MemDatos:memDatos|altsyncram:altsyncram_component                                                                 ; altsyncram          ; work         ;
+;             |altsyncram_rhn1:auto_generated| ; 16 (0)              ; 6 (6)                     ; 524288            ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|MemDatos:memDatos|altsyncram:altsyncram_component|altsyncram_rhn1:auto_generated                                  ; altsyncram_rhn1     ; work         ;
+;                |decode_61a:rden_decode|      ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|MemDatos:memDatos|altsyncram:altsyncram_component|altsyncram_rhn1:auto_generated|decode_61a:rden_decode           ; decode_61a          ; work         ;
+;                |decode_dla:decode3|          ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|MemDatos:memDatos|altsyncram:altsyncram_component|altsyncram_rhn1:auto_generated|decode_dla:decode3               ; decode_dla          ; work         ;
+;       |MemInst:memInst|                      ; 104 (0)             ; 6 (0)                     ; 2097152           ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|MemInst:memInst                                                                                                   ; MemInst             ; work         ;
+;          |altsyncram:altsyncram_component|   ; 104 (0)             ; 6 (0)                     ; 2097152           ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|MemInst:memInst|altsyncram:altsyncram_component                                                                   ; altsyncram          ; work         ;
+;             |altsyncram_6bf1:auto_generated| ; 104 (0)             ; 6 (6)                     ; 2097152           ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|MemInst:memInst|altsyncram:altsyncram_component|altsyncram_6bf1:auto_generated                                    ; altsyncram_6bf1     ; work         ;
+;                |decode_61a:rden_decode|      ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|MemInst:memInst|altsyncram:altsyncram_component|altsyncram_6bf1:auto_generated|decode_61a:rden_decode             ; decode_61a          ; work         ;
+;                |mux_ahb:mux2|                ; 96 (96)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|MemInst:memInst|altsyncram:altsyncram_component|altsyncram_6bf1:auto_generated|mux_ahb:mux2                       ; mux_ahb             ; work         ;
+;       |Mux2x1:muxDato|                       ; 24 (24)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|Mux2x1:muxDato                                                                                                    ; Mux2x1              ; work         ;
+;       |Mux2x1:muxDirRegB|                    ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|Mux2x1:muxDirRegB                                                                                                 ; Mux2x1              ; work         ;
+;       |Mux2x1:muxDirW|                       ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|Mux2x1:muxDirW                                                                                                    ; Mux2x1              ; work         ;
+;       |Mux2x1:muxValA|                       ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|Mux2x1:muxValA                                                                                                    ; Mux2x1              ; work         ;
+;       |Mux2x1:muxValB|                       ; 352 (352)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|Mux2x1:muxValB                                                                                                    ; Mux2x1              ; work         ;
+;       |Mux4x1:MuxDireccionPC|                ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|Mux4x1:MuxDireccionPC                                                                                             ; Mux4x1              ; work         ;
+;       |Mux4x1:MuxResultSelect|               ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|Mux4x1:MuxResultSelect                                                                                            ; Mux4x1              ; work         ;
+;       |PC:pc|                                ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|PC:pc                                                                                                             ; PC                  ; work         ;
+;       |PipeDE:pipeDE|                        ; 2 (2)               ; 97 (97)                   ; 0                 ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|PipeDE:pipeDE                                                                                                     ; PipeDE              ; work         ;
+;       |PipeEM:pipeEm|                        ; 0 (0)               ; 40 (40)                   ; 0                 ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|PipeEM:pipeEm                                                                                                     ; PipeEM              ; work         ;
+;       |PipeIFD:pipeIFD|                      ; 0 (0)               ; 27 (27)                   ; 0                 ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|PipeIFD:pipeIFD                                                                                                   ; PipeIFD             ; work         ;
+;       |PipeWB:pipeWB|                        ; 0 (0)               ; 38 (38)                   ; 0                 ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|PipeWB:pipeWB                                                                                                     ; PipeWB              ; work         ;
+;       |RegisterBank:registerBank|            ; 35 (35)             ; 1067 (1067)               ; 1024              ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|RegisterBank:registerBank                                                                                         ; RegisterBank        ; work         ;
+;          |altsyncram:RF_rtl_0|               ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|RegisterBank:registerBank|altsyncram:RF_rtl_0                                                                     ; altsyncram          ; work         ;
+;             |altsyncram_u2n1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |Tester|CPU:cpu|RegisterBank:registerBank|altsyncram:RF_rtl_0|altsyncram_u2n1:auto_generated                                      ; altsyncram_u2n1     ; work         ;
+;    |clock_divider:DIV1|                      ; 11 (11)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|clock_divider:DIV1                                                                                                        ; clock_divider       ; work         ;
+;    |seven_segments:sevenSegs1|               ; 1466 (45)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1                                                                                                 ; seven_segments      ; work         ;
+;       |lpm_divide:Div0|                      ; 313 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_ibm:auto_generated|     ; 313 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1|lpm_divide:Div0|lpm_divide_ibm:auto_generated                                                   ; lpm_divide_ibm      ; work         ;
+;             |sign_div_unsign_olh:divider|    ; 313 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1|lpm_divide:Div0|lpm_divide_ibm:auto_generated|sign_div_unsign_olh:divider                       ; sign_div_unsign_olh ; work         ;
+;                |alt_u_div_mve:divider|       ; 313 (313)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1|lpm_divide:Div0|lpm_divide_ibm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_mve:divider ; alt_u_div_mve       ; work         ;
+;       |lpm_divide:Div1|                      ; 478 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_lbm:auto_generated|     ; 478 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1|lpm_divide:Div1|lpm_divide_lbm:auto_generated                                                   ; lpm_divide_lbm      ; work         ;
+;             |sign_div_unsign_rlh:divider|    ; 478 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider                       ; sign_div_unsign_rlh ; work         ;
+;                |alt_u_div_sve:divider|       ; 478 (478)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_sve:divider ; alt_u_div_sve       ; work         ;
+;       |lpm_divide:Mod0|                      ; 318 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_l3m:auto_generated|     ; 318 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1|lpm_divide:Mod0|lpm_divide_l3m:auto_generated                                                   ; lpm_divide_l3m      ; work         ;
+;             |sign_div_unsign_olh:divider|    ; 318 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1|lpm_divide:Mod0|lpm_divide_l3m:auto_generated|sign_div_unsign_olh:divider                       ; sign_div_unsign_olh ; work         ;
+;                |alt_u_div_mve:divider|       ; 318 (318)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1|lpm_divide:Mod0|lpm_divide_l3m:auto_generated|sign_div_unsign_olh:divider|alt_u_div_mve:divider ; alt_u_div_mve       ; work         ;
+;       |lpm_divide:Mod1|                      ; 10 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1|lpm_divide:Mod1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_42m:auto_generated|     ; 10 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1|lpm_divide:Mod1|lpm_divide_42m:auto_generated                                                   ; lpm_divide_42m      ; work         ;
+;             |sign_div_unsign_7kh:divider|    ; 10 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1|lpm_divide:Mod1|lpm_divide_42m:auto_generated|sign_div_unsign_7kh:divider                       ; sign_div_unsign_7kh ; work         ;
+;                |alt_u_div_kse:divider|       ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1|lpm_divide:Mod1|lpm_divide_42m:auto_generated|sign_div_unsign_7kh:divider|alt_u_div_kse:divider ; alt_u_div_kse       ; work         ;
+;       |lpm_divide:Mod2|                      ; 302 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1|lpm_divide:Mod2                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_l3m:auto_generated|     ; 302 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1|lpm_divide:Mod2|lpm_divide_l3m:auto_generated                                                   ; lpm_divide_l3m      ; work         ;
+;             |sign_div_unsign_olh:divider|    ; 302 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1|lpm_divide:Mod2|lpm_divide_l3m:auto_generated|sign_div_unsign_olh:divider                       ; sign_div_unsign_olh ; work         ;
+;                |alt_u_div_mve:divider|       ; 302 (302)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Tester|seven_segments:sevenSegs1|lpm_divide:Mod2|lpm_divide_l3m:auto_generated|sign_div_unsign_olh:divider|alt_u_div_mve:divider ; alt_u_div_mve       ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                              ;
++-----------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+---------+
+; Name                                                                                                ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size    ; MIF     ;
++-----------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+---------+
+; CPU:cpu|MemDatos:memDatos|altsyncram:altsyncram_component|altsyncram_rhn1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port      ; 65536        ; 8            ; --           ; --           ; 524288  ; RAM.mif ;
+; CPU:cpu|MemInst:memInst|altsyncram:altsyncram_component|altsyncram_6bf1:auto_generated|ALTSYNCRAM   ; AUTO ; ROM              ; 65536        ; 32           ; --           ; --           ; 2097152 ; ROM.mif ;
+; CPU:cpu|RegisterBank:registerBank|altsyncram:RF_rtl_0|altsyncram_u2n1:auto_generated|ALTSYNCRAM     ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024    ; None    ;
++-----------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+---------+
+
+
++-----------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary  ;
++---------------------------------+-------------+
+; Statistic                       ; Number Used ;
++---------------------------------+-------------+
+; Two Independent 18x18           ; 1           ;
+; Sum of two 18x18                ; 1           ;
+; Total number of DSP blocks      ; 2           ;
+;                                 ;             ;
+; Fixed Point Unsigned Multiplier ; 3           ;
++---------------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                               ;
++--------+--------------+---------+--------------+--------------+-----------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                   ; IP Include File ;
++--------+--------------+---------+--------------+--------------+-----------------------------------+-----------------+
+; Altera ; RAM: 1-PORT  ; 16.1    ; N/A          ; N/A          ; |Tester|CPU:cpu|MemDatos:memDatos ; MemDatos.v      ;
+; Altera ; ROM: 1-PORT  ; 16.1    ; N/A          ; N/A          ; |Tester|CPU:cpu|MemInst:memInst   ; MemInst.v       ;
++--------+--------------+---------+--------------+--------------+-----------------------------------+-----------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                            ;
++-----------------------------------------------------+---------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal             ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------------------+------------------------+
+; seven_segments:sevenSegs1|seven_Segs[0]             ; seven_segments:sevenSegs1|Mux7  ; yes                    ;
+; seven_segments:sevenSegs1|seven_Segs[1]             ; seven_segments:sevenSegs1|Mux7  ; yes                    ;
+; seven_segments:sevenSegs1|seven_Segs[2]             ; seven_segments:sevenSegs1|Mux7  ; yes                    ;
+; seven_segments:sevenSegs1|seven_Segs[3]             ; seven_segments:sevenSegs1|Mux7  ; yes                    ;
+; seven_segments:sevenSegs1|seven_Segs[4]             ; seven_segments:sevenSegs1|Mux7  ; yes                    ;
+; seven_segments:sevenSegs1|seven_Segs[5]             ; seven_segments:sevenSegs1|Mux7  ; yes                    ;
+; seven_segments:sevenSegs1|seven_Segs[6]             ; seven_segments:sevenSegs1|Mux7  ; yes                    ;
+; seven_segments:sevenSegs1|seven_Segs[7]             ; seven_segments:sevenSegs1|Mux15 ; yes                    ;
+; seven_segments:sevenSegs1|seven_Segs[8]             ; seven_segments:sevenSegs1|Mux15 ; yes                    ;
+; seven_segments:sevenSegs1|seven_Segs[9]             ; seven_segments:sevenSegs1|Mux15 ; yes                    ;
+; seven_segments:sevenSegs1|seven_Segs[10]            ; seven_segments:sevenSegs1|Mux15 ; yes                    ;
+; seven_segments:sevenSegs1|seven_Segs[11]            ; seven_segments:sevenSegs1|Mux15 ; yes                    ;
+; seven_segments:sevenSegs1|seven_Segs[12]            ; seven_segments:sevenSegs1|Mux15 ; yes                    ;
+; seven_segments:sevenSegs1|seven_Segs[13]            ; seven_segments:sevenSegs1|Mux15 ; yes                    ;
+; seven_segments:sevenSegs1|seven_Segs[14]            ; seven_segments:sevenSegs1|Mux23 ; yes                    ;
+; seven_segments:sevenSegs1|seven_Segs[15]            ; seven_segments:sevenSegs1|Mux23 ; yes                    ;
+; seven_segments:sevenSegs1|seven_Segs[16]            ; seven_segments:sevenSegs1|Mux23 ; yes                    ;
+; seven_segments:sevenSegs1|seven_Segs[17]            ; seven_segments:sevenSegs1|Mux23 ; yes                    ;
+; seven_segments:sevenSegs1|seven_Segs[18]            ; seven_segments:sevenSegs1|Mux23 ; yes                    ;
+; seven_segments:sevenSegs1|seven_Segs[19]            ; seven_segments:sevenSegs1|Mux23 ; yes                    ;
+; seven_segments:sevenSegs1|seven_Segs[20]            ; seven_segments:sevenSegs1|Mux23 ; yes                    ;
+; CPU:cpu|ALU:alu|Flags[1]                            ; CPU:cpu|ALU:alu|Flags[1]        ; yes                    ;
+; CPU:cpu|ALU:alu|Flags[0]                            ; CPU:cpu|ALU:alu|Flags[1]        ; yes                    ;
+; Number of user-specified and inferred latches = 23  ;                                 ;                        ;
++-----------------------------------------------------+---------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                        ;
++---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
+; Register name                                     ; Reason for Removal                                                                                                    ;
++---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
+; CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[16..31]      ; Stuck at GND due to stuck port data_in                                                                                ;
+; CPU:cpu|PipeDE:pipeDE|InmCorrimIFDOUTTEMP[16..31] ; Stuck at GND due to stuck port data_in                                                                                ;
+; CPU:cpu|PipeDE:pipeDE|ValATMP[15]                 ; Merged with CPU:cpu|MemDatos:memDatos|altsyncram:altsyncram_component|altsyncram_rhn1:auto_generated|address_reg_a[2] ;
+; CPU:cpu|PipeDE:pipeDE|ValATMP[14]                 ; Merged with CPU:cpu|MemDatos:memDatos|altsyncram:altsyncram_component|altsyncram_rhn1:auto_generated|address_reg_a[1] ;
+; CPU:cpu|PipeDE:pipeDE|ValATMP[13]                 ; Merged with CPU:cpu|MemDatos:memDatos|altsyncram:altsyncram_component|altsyncram_rhn1:auto_generated|address_reg_a[0] ;
+; CPU:cpu|PipeIFD:pipeIFD|DireccionOUT[0]           ; Merged with CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[0]                                                                   ;
+; CPU:cpu|PipeIFD:pipeIFD|DireccionOUT[1]           ; Merged with CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[1]                                                                   ;
+; CPU:cpu|PipeIFD:pipeIFD|DireccionOUT[2]           ; Merged with CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[2]                                                                   ;
+; CPU:cpu|PipeIFD:pipeIFD|DireccionOUT[3]           ; Merged with CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[3]                                                                   ;
+; CPU:cpu|PipeIFD:pipeIFD|DireccionOUT[4]           ; Merged with CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[4]                                                                   ;
+; CPU:cpu|PipeIFD:pipeIFD|DireccionOUT[5]           ; Merged with CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[5]                                                                   ;
+; CPU:cpu|PipeIFD:pipeIFD|DireccionOUT[6]           ; Merged with CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[6]                                                                   ;
+; CPU:cpu|PipeIFD:pipeIFD|DireccionOUT[7]           ; Merged with CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[7]                                                                   ;
+; CPU:cpu|PipeIFD:pipeIFD|DireccionOUT[8]           ; Merged with CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[8]                                                                   ;
+; CPU:cpu|PipeIFD:pipeIFD|DireccionOUT[9]           ; Merged with CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[9]                                                                   ;
+; CPU:cpu|PipeIFD:pipeIFD|DireccionOUT[10]          ; Merged with CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[10]                                                                  ;
+; CPU:cpu|PipeIFD:pipeIFD|DireccionOUT[11]          ; Merged with CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[11]                                                                  ;
+; CPU:cpu|PipeIFD:pipeIFD|DirRegBOUT[0]             ; Merged with CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[12]                                                                  ;
+; CPU:cpu|PipeIFD:pipeIFD|DireccionOUT[12]          ; Merged with CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[12]                                                                  ;
+; CPU:cpu|PipeIFD:pipeIFD|DirRegBOUT[1]             ; Merged with CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[13]                                                                  ;
+; CPU:cpu|PipeIFD:pipeIFD|DireccionOUT[13]          ; Merged with CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[13]                                                                  ;
+; CPU:cpu|PipeIFD:pipeIFD|DirRegBOUT[2]             ; Merged with CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[14]                                                                  ;
+; CPU:cpu|PipeIFD:pipeIFD|DireccionOUT[14]          ; Merged with CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[14]                                                                  ;
+; CPU:cpu|PipeIFD:pipeIFD|DirRegBOUT[3]             ; Merged with CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[15]                                                                  ;
+; CPU:cpu|PipeIFD:pipeIFD|DireccionOUT[15]          ; Merged with CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[15]                                                                  ;
+; CPU:cpu|PC:pc|PCout[16..31]                       ; Lost fanout                                                                                                           ;
+; Total Number of Removed Registers = 71            ;                                                                                                                       ;
++---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                       ;
++------------------------------------------+---------------------------+----------------------------------------------------------------------------+
+; Register name                            ; Reason for Removal        ; Registers Removed due to This Register                                     ;
++------------------------------------------+---------------------------+----------------------------------------------------------------------------+
+; CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[16] ; Stuck at GND              ; CPU:cpu|PipeDE:pipeDE|InmCorrimIFDOUTTEMP[16], CPU:cpu|PC:pc|PCout[31],    ;
+;                                          ; due to stuck port data_in ; CPU:cpu|PC:pc|PCout[30], CPU:cpu|PC:pc|PCout[29], CPU:cpu|PC:pc|PCout[28], ;
+;                                          ;                           ; CPU:cpu|PC:pc|PCout[27], CPU:cpu|PC:pc|PCout[26], CPU:cpu|PC:pc|PCout[25], ;
+;                                          ;                           ; CPU:cpu|PC:pc|PCout[24], CPU:cpu|PC:pc|PCout[23], CPU:cpu|PC:pc|PCout[22], ;
+;                                          ;                           ; CPU:cpu|PC:pc|PCout[21], CPU:cpu|PC:pc|PCout[20], CPU:cpu|PC:pc|PCout[19], ;
+;                                          ;                           ; CPU:cpu|PC:pc|PCout[18], CPU:cpu|PC:pc|PCout[17], CPU:cpu|PC:pc|PCout[16]  ;
+; CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[17] ; Stuck at GND              ; CPU:cpu|PipeDE:pipeDE|InmCorrimIFDOUTTEMP[17]                              ;
+;                                          ; due to stuck port data_in ;                                                                            ;
+; CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[18] ; Stuck at GND              ; CPU:cpu|PipeDE:pipeDE|InmCorrimIFDOUTTEMP[18]                              ;
+;                                          ; due to stuck port data_in ;                                                                            ;
+; CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[19] ; Stuck at GND              ; CPU:cpu|PipeDE:pipeDE|InmCorrimIFDOUTTEMP[19]                              ;
+;                                          ; due to stuck port data_in ;                                                                            ;
+; CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[20] ; Stuck at GND              ; CPU:cpu|PipeDE:pipeDE|InmCorrimIFDOUTTEMP[20]                              ;
+;                                          ; due to stuck port data_in ;                                                                            ;
+; CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[21] ; Stuck at GND              ; CPU:cpu|PipeDE:pipeDE|InmCorrimIFDOUTTEMP[21]                              ;
+;                                          ; due to stuck port data_in ;                                                                            ;
+; CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[22] ; Stuck at GND              ; CPU:cpu|PipeDE:pipeDE|InmCorrimIFDOUTTEMP[22]                              ;
+;                                          ; due to stuck port data_in ;                                                                            ;
+; CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[23] ; Stuck at GND              ; CPU:cpu|PipeDE:pipeDE|InmCorrimIFDOUTTEMP[23]                              ;
+;                                          ; due to stuck port data_in ;                                                                            ;
+; CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[24] ; Stuck at GND              ; CPU:cpu|PipeDE:pipeDE|InmCorrimIFDOUTTEMP[24]                              ;
+;                                          ; due to stuck port data_in ;                                                                            ;
+; CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[25] ; Stuck at GND              ; CPU:cpu|PipeDE:pipeDE|InmCorrimIFDOUTTEMP[25]                              ;
+;                                          ; due to stuck port data_in ;                                                                            ;
+; CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[26] ; Stuck at GND              ; CPU:cpu|PipeDE:pipeDE|InmCorrimIFDOUTTEMP[26]                              ;
+;                                          ; due to stuck port data_in ;                                                                            ;
+; CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[27] ; Stuck at GND              ; CPU:cpu|PipeDE:pipeDE|InmCorrimIFDOUTTEMP[27]                              ;
+;                                          ; due to stuck port data_in ;                                                                            ;
+; CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[28] ; Stuck at GND              ; CPU:cpu|PipeDE:pipeDE|InmCorrimIFDOUTTEMP[28]                              ;
+;                                          ; due to stuck port data_in ;                                                                            ;
+; CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[29] ; Stuck at GND              ; CPU:cpu|PipeDE:pipeDE|InmCorrimIFDOUTTEMP[29]                              ;
+;                                          ; due to stuck port data_in ;                                                                            ;
+; CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[30] ; Stuck at GND              ; CPU:cpu|PipeDE:pipeDE|InmCorrimIFDOUTTEMP[30]                              ;
+;                                          ; due to stuck port data_in ;                                                                            ;
+; CPU:cpu|PipeIFD:pipeIFD|InmCorrimOUT[31] ; Stuck at GND              ; CPU:cpu|PipeDE:pipeDE|InmCorrimIFDOUTTEMP[31]                              ;
+;                                          ; due to stuck port data_in ;                                                                            ;
++------------------------------------------+---------------------------+----------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1306  ;
+; Number of registers using Synchronous Clear  ; 97    ;
+; Number of registers using Synchronous Load   ; 56    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1024  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Registers Added for RAM Pass-Through Logic                                                         ;
++-------------------------------------------------------+--------------------------------------------+
+; Register Name                                         ; RAM Name                                   ;
++-------------------------------------------------------+--------------------------------------------+
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[0]  ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[1]  ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[2]  ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[3]  ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[4]  ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[5]  ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[6]  ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[7]  ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[8]  ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[9]  ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[10] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[11] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[12] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[13] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[14] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[15] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[16] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[17] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[18] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[19] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[20] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[21] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[22] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[23] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[24] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[25] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[26] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[27] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[28] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[29] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[30] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[31] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[32] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[33] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[34] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[35] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[36] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[37] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[38] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[39] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[40] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[41] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
+; CPU:cpu|RegisterBank:registerBank|RF_rtl_0_bypass[42] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ;
++-------------------------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                 ;
++------------------------------------------+--------------------------------------------+------+
+; Register Name                            ; Megafunction                               ; Type ;
++------------------------------------------+--------------------------------------------+------+
+; CPU:cpu|PipeIFD:pipeIFD|DirRegAOUT[0..4] ; CPU:cpu|RegisterBank:registerBank|RF_rtl_0 ; RAM  ;
++------------------------------------------+--------------------------------------------+------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |Tester|CPU:cpu|PipeDE:pipeDE|ValATMP[24]                                                                                         ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Tester|CPU:cpu|PipeEM:pipeEm|DatoResultTMP[4]                                                                                    ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |Tester|CPU:cpu|PC:pc|PCout[0]                                                                                                    ;
+; 8:1                ; 27 bits   ; 135 LEs       ; 135 LEs              ; 0 LEs                  ; Yes        ; |Tester|CPU:cpu|PipeIFD:pipeIFD|DirWriteOUT[4]                                                                                    ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; Yes        ; |Tester|CPU:cpu|PipeWB:pipeWB|DatoWBTMP[6]                                                                                        ;
+; 33:1               ; 16 bits   ; 352 LEs       ; 336 LEs              ; 16 LEs                 ; Yes        ; |Tester|CPU:cpu|PipeDE:pipeDE|ValBTMP[31]                                                                                         ;
+; 33:1               ; 16 bits   ; 352 LEs       ; 352 LEs              ; 0 LEs                  ; Yes        ; |Tester|CPU:cpu|PipeDE:pipeDE|ValBTMP[7]                                                                                          ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |Tester|CPU:cpu|PipeDE:pipeDE|CodigoALUTMP[2]                                                                                     ;
+; 24:1               ; 2 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |Tester|CPU:cpu|PipeDE:pipeDE|MuxDatoTMP                                                                                          ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |Tester|CPU:cpu|Mux2x1:muxValA|C[15]                                                                                              ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 25 LEs               ; 0 LEs                  ; No         ; |Tester|CPU:cpu|MemInst:memInst|altsyncram:altsyncram_component|altsyncram_6bf1:auto_generated|mux_ahb:mux2|l3_w17_n0_mux_dataout ;
+; 9:1                ; 15 bits   ; 90 LEs        ; 90 LEs               ; 0 LEs                  ; No         ; |Tester|CPU:cpu|ALU:alu|Result[10]                                                                                                ;
+; 9:1                ; 16 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |Tester|CPU:cpu|ALU:alu|Result[28]                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Source assignments for CPU:cpu|MemInst:memInst|altsyncram:altsyncram_component|altsyncram_6bf1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                              ;
++---------------------------------+--------------------+------+-------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                               ;
++---------------------------------+--------------------+------+-------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Source assignments for CPU:cpu|MemDatos:memDatos|altsyncram:altsyncram_component|altsyncram_rhn1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                ;
++---------------------------------+--------------------+------+---------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                 ;
++---------------------------------+--------------------+------+---------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Source assignments for CPU:cpu|RegisterBank:registerBank|altsyncram:RF_rtl_0|altsyncram_u2n1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                            ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                             ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |Tester ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; N              ; 500   ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: clock_divider:DIV1 ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; M              ; 500   ; Signed Integer                         ;
+; N              ; 9     ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|MemInst:memInst|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                     ;
++------------------------------------+----------------------+------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                  ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                           ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                  ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                  ;
+; WIDTH_A                            ; 32                   ; Signed Integer                           ;
+; WIDTHAD_A                          ; 16                   ; Signed Integer                           ;
+; NUMWORDS_A                         ; 65536                ; Signed Integer                           ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                                  ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                  ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                  ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                  ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                  ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                  ;
+; WIDTH_B                            ; 1                    ; Untyped                                  ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                  ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                  ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                  ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                  ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                  ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                  ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                  ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                  ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                  ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                  ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                  ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                  ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                  ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                  ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                           ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                  ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                  ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                  ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                  ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                  ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                  ;
+; INIT_FILE                          ; ROM.mif              ; Untyped                                  ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                  ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                  ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                  ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                  ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                  ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                  ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                  ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                  ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                  ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                  ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                  ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                  ;
+; CBXI_PARAMETER                     ; altsyncram_6bf1      ; Untyped                                  ;
++------------------------------------+----------------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|MemDatos:memDatos|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+--------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                       ;
++------------------------------------+----------------------+--------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                    ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                 ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                               ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                               ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                             ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                    ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                                    ;
+; WIDTH_A                            ; 8                    ; Signed Integer                             ;
+; WIDTHAD_A                          ; 16                   ; Signed Integer                             ;
+; NUMWORDS_A                         ; 65536                ; Signed Integer                             ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                                    ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                    ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                    ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                    ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                    ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                    ;
+; WIDTH_B                            ; 1                    ; Untyped                                    ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                    ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                    ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                    ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                    ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                    ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                    ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                    ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                    ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                    ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                    ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                    ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                    ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                    ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                    ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                             ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                    ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                    ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                    ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                    ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                    ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                    ;
+; INIT_FILE                          ; RAM.mif              ; Untyped                                    ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                    ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                    ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                    ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                    ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                    ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                    ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                    ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                    ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                    ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                    ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                    ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                    ;
+; CBXI_PARAMETER                     ; altsyncram_rhn1      ; Untyped                                    ;
++------------------------------------+----------------------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: CPU:cpu|RegisterBank:registerBank|altsyncram:RF_rtl_0 ;
++------------------------------------+----------------------+--------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                       ;
++------------------------------------+----------------------+--------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                    ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                 ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                               ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                               ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                             ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                    ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                    ;
+; WIDTH_A                            ; 32                   ; Untyped                                    ;
+; WIDTHAD_A                          ; 5                    ; Untyped                                    ;
+; NUMWORDS_A                         ; 32                   ; Untyped                                    ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                    ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                    ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                    ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                    ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                    ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                    ;
+; WIDTH_B                            ; 32                   ; Untyped                                    ;
+; WIDTHAD_B                          ; 5                    ; Untyped                                    ;
+; NUMWORDS_B                         ; 32                   ; Untyped                                    ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                    ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                    ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                    ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                    ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                    ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                    ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                    ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                    ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                    ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                    ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                    ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                    ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                    ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                    ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                    ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                    ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                                    ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                    ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                    ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                    ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                    ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                    ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                    ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                    ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                    ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                    ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                    ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                    ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                    ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                    ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                    ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                    ;
+; CBXI_PARAMETER                     ; altsyncram_u2n1      ; Untyped                                    ;
++------------------------------------+----------------------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: seven_segments:sevenSegs1|lpm_divide:Mod0 ;
++------------------------+----------------+--------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                             ;
++------------------------+----------------+--------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                          ;
+; LPM_WIDTHD             ; 4              ; Untyped                                          ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                                          ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                          ;
+; CBXI_PARAMETER         ; lpm_divide_l3m ; Untyped                                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                   ;
++------------------------+----------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: seven_segments:sevenSegs1|lpm_divide:Mod1 ;
++------------------------+----------------+--------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                             ;
++------------------------+----------------+--------------------------------------------------+
+; LPM_WIDTHN             ; 4              ; Untyped                                          ;
+; LPM_WIDTHD             ; 4              ; Untyped                                          ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                                          ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                          ;
+; CBXI_PARAMETER         ; lpm_divide_42m ; Untyped                                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                   ;
++------------------------+----------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: seven_segments:sevenSegs1|lpm_divide:Div0 ;
++------------------------+----------------+--------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                             ;
++------------------------+----------------+--------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                          ;
+; LPM_WIDTHD             ; 4              ; Untyped                                          ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                                          ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                          ;
+; CBXI_PARAMETER         ; lpm_divide_ibm ; Untyped                                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                   ;
++------------------------+----------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: seven_segments:sevenSegs1|lpm_divide:Mod2 ;
++------------------------+----------------+--------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                             ;
++------------------------+----------------+--------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                          ;
+; LPM_WIDTHD             ; 4              ; Untyped                                          ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                                          ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                          ;
+; CBXI_PARAMETER         ; lpm_divide_l3m ; Untyped                                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                   ;
++------------------------+----------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: seven_segments:sevenSegs1|lpm_divide:Div1 ;
++------------------------+----------------+--------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                             ;
++------------------------+----------------+--------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                          ;
+; LPM_WIDTHD             ; 7              ; Untyped                                          ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                                          ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                          ;
+; CBXI_PARAMETER         ; lpm_divide_lbm ; Untyped                                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                   ;
++------------------------+----------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                      ;
++-------------------------------------------+-----------------------------------------------------------+
+; Name                                      ; Value                                                     ;
++-------------------------------------------+-----------------------------------------------------------+
+; Number of entity instances                ; 3                                                         ;
+; Entity Instance                           ; CPU:cpu|MemInst:memInst|altsyncram:altsyncram_component   ;
+;     -- OPERATION_MODE                     ; ROM                                                       ;
+;     -- WIDTH_A                            ; 32                                                        ;
+;     -- NUMWORDS_A                         ; 65536                                                     ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                                    ;
+;     -- WIDTH_B                            ; 1                                                         ;
+;     -- NUMWORDS_B                         ; 1                                                         ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                    ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                              ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                      ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                 ;
+; Entity Instance                           ; CPU:cpu|MemDatos:memDatos|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                               ;
+;     -- WIDTH_A                            ; 8                                                         ;
+;     -- NUMWORDS_A                         ; 65536                                                     ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                                    ;
+;     -- WIDTH_B                            ; 1                                                         ;
+;     -- NUMWORDS_B                         ; 1                                                         ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                    ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                              ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                      ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                 ;
+; Entity Instance                           ; CPU:cpu|RegisterBank:registerBank|altsyncram:RF_rtl_0     ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                 ;
+;     -- WIDTH_A                            ; 32                                                        ;
+;     -- NUMWORDS_A                         ; 32                                                        ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                              ;
+;     -- WIDTH_B                            ; 32                                                        ;
+;     -- NUMWORDS_B                         ; 32                                                        ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                    ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                              ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                      ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                                  ;
++-------------------------------------------+-----------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:cpu|MemDatos:memDatos"                                                                                                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; address ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (16 bits) it drives.  The 16 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; data    ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (8 bits) it drives.  The 24 most-significant bit(s) in the expression will be dangling if they have no other fanouts.  ;
+; q       ; Output ; Warning  ; Output or bidir port (8 bits) is smaller than the port expression (32 bits) it drives.  The 24 most-significant bit(s) in the port expression will be connected to GND.             ;
++---------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:cpu|Mux2x1:muxDirMem"                                                                                                                   ;
++------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                                     ;
++------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; A    ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "A[31..1]" will be connected to GND. ;
+; C    ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (5 bits) it drives; bit(s) "C[31..5]" have no fanouts                      ;
+; C    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                         ;
++------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:cpu|PipeEM:pipeEm"                                                                                                                                                                       ;
++----------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                                                                                                                            ;
++----------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; DirWriteIN     ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (5 bits) it drives.  The 27 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; DirMemCargaOUT ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (1 bits) it drives; bit(s) "DirMemCargaOUT[31..1]" have no fanouts                                                ;
++----------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:cpu|Mux2x1:muxDirW"                                                                                                                         ;
++----------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                                                     ;
++----------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; A        ; Input  ; Warning  ; Input port expression (5 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "A[31..5]" will be connected to GND. ;
+; B[4..3]  ; Input  ; Info     ; Stuck at VCC                                                                                                                                ;
+; B[31..5] ; Input  ; Info     ; Stuck at GND                                                                                                                                ;
+; B[2..1]  ; Input  ; Info     ; Stuck at GND                                                                                                                                ;
+; B[0]     ; Input  ; Info     ; Stuck at VCC                                                                                                                                ;
+; C[31..5] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                         ;
++----------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:cpu|PipeDE:pipeDE"                                                                ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; D0OUT  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D1OUT  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D2OUT  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D3OUT  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D4OUT  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D5OUT  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D6OUT  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D7OUT  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D8OUT  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D9OUT  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D10OUT ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D11OUT ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D12OUT ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D13OUT ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D14OUT ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D15OUT ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D16OUT ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D17OUT ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D18OUT ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D19OUT ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D20OUT ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D21OUT ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D22OUT ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D23OUT ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; D24OUT ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:cpu|Mux2x1:muxDirRegB"                                                                                                                  ;
++------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                                     ;
++------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; A    ; Input  ; Warning  ; Input port expression (5 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "A[31..5]" will be connected to GND. ;
+; B    ; Input  ; Warning  ; Input port expression (5 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "B[31..5]" will be connected to GND. ;
+; C    ; Output ; Warning  ; Output or bidir port (32 bits) is wider than the port expression (5 bits) it drives; bit(s) "C[31..5]" have no fanouts                      ;
++------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "CPU:cpu|Adder:pcplus4" ;
++----------+-------+----------+---------------------+
+; Port     ; Type  ; Severity ; Details             ;
++----------+-------+----------+---------------------+
+; B[31..1] ; Input ; Info     ; Stuck at GND        ;
+; B[0]     ; Input ; Info     ; Stuck at VCC        ;
++----------+-------+----------+---------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:cpu|PipeIFD:pipeIFD"                                                                                                                                                         ;
++--------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                                                                                                                  ;
++--------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; DireccionOUT ; Output ; Warning  ; Output or bidir port (16 bits) is smaller than the port expression (32 bits) it drives.  The 16 most-significant bit(s) in the port expression will be connected to GND. ;
++--------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:cpu|MemInst:memInst"                                                                                                                                                              ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                             ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; address ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (16 bits) it drives.  The 16 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:cpu"                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; reg0  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg1  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg2  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg3  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg4  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg6  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg7  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg8  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg9  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg10 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg11 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg12 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg13 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg14 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg15 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg16 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg17 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg18 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg19 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg20 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg21 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg22 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg23 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg24 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; reg25 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 1306                        ;
+;     ENA               ; 1024                        ;
+;     SCLR              ; 49                          ;
+;     SCLR SLD          ; 48                          ;
+;     SLD               ; 8                           ;
+;     plain             ; 177                         ;
+; arriav_lcell_comb     ; 2326                        ;
+;     arith             ; 908                         ;
+;         0 data inputs ; 218                         ;
+;         1 data inputs ; 133                         ;
+;         2 data inputs ; 56                          ;
+;         3 data inputs ; 347                         ;
+;         4 data inputs ; 154                         ;
+;     extend            ; 19                          ;
+;         7 data inputs ; 19                          ;
+;     normal            ; 1344                        ;
+;         2 data inputs ; 304                         ;
+;         3 data inputs ; 339                         ;
+;         4 data inputs ; 59                          ;
+;         5 data inputs ; 134                         ;
+;         6 data inputs ; 508                         ;
+;     shared            ; 55                          ;
+;         0 data inputs ; 6                           ;
+;         1 data inputs ; 17                          ;
+;         2 data inputs ; 32                          ;
+; arriav_mac            ; 2                           ;
+; boundary_port         ; 22                          ;
+; stratixv_ram_block    ; 352                         ;
+;                       ;                             ;
+; Max LUT depth         ; 47.10                       ;
+; Average LUT depth     ; 20.61                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:05     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Tue Oct 17 02:18:26 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Process1 -c Process1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file pc.v
+    Info (12023): Found entity 1: PC File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/PC.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file registerbank.v
+    Info (12023): Found entity 1: RegisterBank File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/RegisterBank.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux2x1.v
+    Info (12023): Found entity 1: Mux2x1 File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/Mux2x1.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux4x1.v
+    Info (12023): Found entity 1: Mux4x1 File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/Mux4x1.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file adder.v
+    Info (12023): Found entity 1: Adder File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/Adder.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu.v
+    Info (12023): Found entity 1: ALU File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/ALU.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file meminst.v
+    Info (12023): Found entity 1: MemInst File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/MemInst.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file pipeifd.v
+    Info (12023): Found entity 1: PipeIFD File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/PipeIFD.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file pipede.v
+    Info (12023): Found entity 1: PipeDE File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/PipeDE.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file pipeem.v
+    Info (12023): Found entity 1: PipeEM File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/PipeEM.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file pipewb.v
+    Info (12023): Found entity 1: PipeWB File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/PipeWB.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file cpu.v
+    Info (12023): Found entity 1: CPU File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file moduloespecial.v
+    Info (12023): Found entity 1: ModuloEsp File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/ModuloEspecial.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file controlunit.v
+    Info (12023): Found entity 1: ControlUnit File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/ControlUnit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file tester.v
+    Info (12023): Found entity 1: Tester File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/Tester.v Line: 1
+Warning (12019): Can't analyze file -- file simulation/Process1.bdf is missing
+Info (12021): Found 1 design units, including 1 entities, in source file clock_divider.v
+    Info (12023): Found entity 1: clock_divider File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/clock_divider.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/seven_segments.v
+    Info (12023): Found entity 1: seven_segments File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file diseño.bdf
+    Info (12023): Found entity 1: Diseño
+Info (12021): Found 1 design units, including 1 entities, in source file cpudiagram.bdf
+    Info (12023): Found entity 1: CPUDiagram
+Info (12021): Found 1 design units, including 1 entities, in source file prueba.v
+    Info (12023): Found entity 1: prueba File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/prueba.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file memdatos.v
+    Info (12023): Found entity 1: MemDatos File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/MemDatos.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file romdatos.v
+    Info (12023): Found entity 1: RomDatos File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/RomDatos.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file pruebamodulo.v
+    Info (12023): Found entity 1: PruebaModulo File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/PruebaModulo.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at CPU.v(219): created implicit net for "crtlMuxDirB" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 219
+Warning (10236): Verilog HDL Implicit Net warning at CPU.v(251): created implicit net for "WriteMemEMOUT" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 251
+Warning (10236): Verilog HDL Implicit Net warning at CPU.v(251): created implicit net for "DirMemCargaEMOUT" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 251
+Critical Warning (10846): Verilog HDL Instantiation warning at PruebaModulo.v(16): instance has no name File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/PruebaModulo.v Line: 16
+Info (12127): Elaborating entity "Tester" for the top level hierarchy
+Info (12128): Elaborating entity "clock_divider" for hierarchy "clock_divider:DIV1" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/Tester.v Line: 44
+Warning (10230): Verilog HDL assignment warning at clock_divider.v(40): truncated value with size 32 to match size of target (9) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/clock_divider.v Line: 40
+Info (12128): Elaborating entity "CPU" for hierarchy "CPU:cpu" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/Tester.v Line: 48
+Info (12128): Elaborating entity "PC" for hierarchy "CPU:cpu|PC:pc" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 207
+Info (12128): Elaborating entity "Mux4x1" for hierarchy "CPU:cpu|Mux4x1:MuxDireccionPC" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 210
+Info (12128): Elaborating entity "MemInst" for hierarchy "CPU:cpu|MemInst:memInst" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 212
+Info (12128): Elaborating entity "altsyncram" for hierarchy "CPU:cpu|MemInst:memInst|altsyncram:altsyncram_component" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/MemInst.v Line: 82
+Info (12130): Elaborated megafunction instantiation "CPU:cpu|MemInst:memInst|altsyncram:altsyncram_component" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/MemInst.v Line: 82
+Info (12133): Instantiated megafunction "CPU:cpu|MemInst:memInst|altsyncram:altsyncram_component" with the following parameter: File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/MemInst.v Line: 82
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "ROM.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "65536"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "widthad_a" = "16"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_6bf1.tdf
+    Info (12023): Found entity 1: altsyncram_6bf1 File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/altsyncram_6bf1.tdf Line: 32
+Info (12128): Elaborating entity "altsyncram_6bf1" for hierarchy "CPU:cpu|MemInst:memInst|altsyncram:altsyncram_component|altsyncram_6bf1:auto_generated" File: d:/programs/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_61a.tdf
+    Info (12023): Found entity 1: decode_61a File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/decode_61a.tdf Line: 23
+Info (12128): Elaborating entity "decode_61a" for hierarchy "CPU:cpu|MemInst:memInst|altsyncram:altsyncram_component|altsyncram_6bf1:auto_generated|decode_61a:rden_decode" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/altsyncram_6bf1.tdf Line: 41
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_ahb.tdf
+    Info (12023): Found entity 1: mux_ahb File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/mux_ahb.tdf Line: 23
+Info (12128): Elaborating entity "mux_ahb" for hierarchy "CPU:cpu|MemInst:memInst|altsyncram:altsyncram_component|altsyncram_6bf1:auto_generated|mux_ahb:mux2" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/altsyncram_6bf1.tdf Line: 42
+Info (12128): Elaborating entity "PipeIFD" for hierarchy "CPU:cpu|PipeIFD:pipeIFD" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 215
+Info (12128): Elaborating entity "Adder" for hierarchy "CPU:cpu|Adder:pcplus4" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 217
+Info (12128): Elaborating entity "ControlUnit" for hierarchy "CPU:cpu|ControlUnit:unidadControl" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 220
+Info (12128): Elaborating entity "Mux2x1" for hierarchy "CPU:cpu|Mux2x1:muxDirRegB" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 222
+Info (12128): Elaborating entity "RegisterBank" for hierarchy "CPU:cpu|RegisterBank:registerBank" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 227
+Info (12128): Elaborating entity "PipeDE" for hierarchy "CPU:cpu|PipeDE:pipeDE" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 241
+Info (12128): Elaborating entity "ALU" for hierarchy "CPU:cpu|ALU:alu" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 244
+Warning (10240): Verilog HDL Always Construct warning at ALU.v(18): inferring latch(es) for variable "Flags", which holds its previous value in one or more paths through the always construct File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/ALU.v Line: 18
+Info (10041): Inferred latch for "Flags[0]" at ALU.v(18) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/ALU.v Line: 18
+Info (10041): Inferred latch for "Flags[1]" at ALU.v(18) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/ALU.v Line: 18
+Info (12128): Elaborating entity "PipeEM" for hierarchy "CPU:cpu|PipeEM:pipeEm" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 252
+Info (12128): Elaborating entity "MemDatos" for hierarchy "CPU:cpu|MemDatos:memDatos" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 256
+Info (12128): Elaborating entity "altsyncram" for hierarchy "CPU:cpu|MemDatos:memDatos|altsyncram:altsyncram_component" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/MemDatos.v Line: 86
+Info (12130): Elaborated megafunction instantiation "CPU:cpu|MemDatos:memDatos|altsyncram:altsyncram_component" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/MemDatos.v Line: 86
+Info (12133): Instantiated megafunction "CPU:cpu|MemDatos:memDatos|altsyncram:altsyncram_component" with the following parameter: File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/MemDatos.v Line: 86
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "RAM.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "65536"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "widthad_a" = "16"
+    Info (12134): Parameter "width_a" = "8"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_rhn1.tdf
+    Info (12023): Found entity 1: altsyncram_rhn1 File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/altsyncram_rhn1.tdf Line: 34
+Info (12128): Elaborating entity "altsyncram_rhn1" for hierarchy "CPU:cpu|MemDatos:memDatos|altsyncram:altsyncram_component|altsyncram_rhn1:auto_generated" File: d:/programs/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_dla.tdf
+    Info (12023): Found entity 1: decode_dla File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/decode_dla.tdf Line: 23
+Info (12128): Elaborating entity "decode_dla" for hierarchy "CPU:cpu|MemDatos:memDatos|altsyncram:altsyncram_component|altsyncram_rhn1:auto_generated|decode_dla:decode3" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/altsyncram_rhn1.tdf Line: 45
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_tfb.tdf
+    Info (12023): Found entity 1: mux_tfb File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/mux_tfb.tdf Line: 23
+Info (12128): Elaborating entity "mux_tfb" for hierarchy "CPU:cpu|MemDatos:memDatos|altsyncram:altsyncram_component|altsyncram_rhn1:auto_generated|mux_tfb:mux2" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/altsyncram_rhn1.tdf Line: 47
+Info (12128): Elaborating entity "PipeWB" for hierarchy "CPU:cpu|PipeWB:pipeWB" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 260
+Info (12128): Elaborating entity "seven_segments" for hierarchy "seven_segments:sevenSegs1" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/Tester.v Line: 52
+Warning (10230): Verilog HDL assignment warning at seven_segments.v(9): truncated value with size 32 to match size of target (4) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 9
+Warning (10230): Verilog HDL assignment warning at seven_segments.v(10): truncated value with size 32 to match size of target (4) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 10
+Warning (10230): Verilog HDL assignment warning at seven_segments.v(11): truncated value with size 32 to match size of target (4) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 11
+Warning (10235): Verilog HDL Always Construct warning at seven_segments.v(12): variable "unidad" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 12
+Warning (10270): Verilog HDL Case Statement warning at seven_segments.v(12): incomplete case statement has no default case item File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 12
+Warning (10235): Verilog HDL Always Construct warning at seven_segments.v(24): variable "decimal" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 24
+Warning (10270): Verilog HDL Case Statement warning at seven_segments.v(24): incomplete case statement has no default case item File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 24
+Warning (10235): Verilog HDL Always Construct warning at seven_segments.v(36): variable "centena" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 36
+Warning (10270): Verilog HDL Case Statement warning at seven_segments.v(36): incomplete case statement has no default case item File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 36
+Warning (10240): Verilog HDL Always Construct warning at seven_segments.v(8): inferring latch(es) for variable "seven_Segs", which holds its previous value in one or more paths through the always construct File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[0]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[1]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[2]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[3]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[4]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[5]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[6]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[7]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[8]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[9]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[10]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[11]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[12]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[13]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[14]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[15]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[16]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[17]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[18]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[19]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Info (10041): Inferred latch for "seven_Segs[20]" at seven_segments.v(8) File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "CPU:cpu|DatoOutMem[31]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[30]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[29]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[28]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[27]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[26]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[25]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[24]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[23]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[22]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[21]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[20]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[19]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[18]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[17]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[16]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[15]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[14]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[13]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[12]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[11]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[10]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[9]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DatoOutMem[8]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 46
+    Warning (12110): Net "CPU:cpu|DireccionIFDOUT[31]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 76
+    Warning (12110): Net "CPU:cpu|DireccionIFDOUT[30]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 76
+    Warning (12110): Net "CPU:cpu|DireccionIFDOUT[29]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 76
+    Warning (12110): Net "CPU:cpu|DireccionIFDOUT[28]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 76
+    Warning (12110): Net "CPU:cpu|DireccionIFDOUT[27]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 76
+    Warning (12110): Net "CPU:cpu|DireccionIFDOUT[26]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 76
+    Warning (12110): Net "CPU:cpu|DireccionIFDOUT[25]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 76
+    Warning (12110): Net "CPU:cpu|DireccionIFDOUT[24]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 76
+    Warning (12110): Net "CPU:cpu|DireccionIFDOUT[23]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 76
+    Warning (12110): Net "CPU:cpu|DireccionIFDOUT[22]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 76
+    Warning (12110): Net "CPU:cpu|DireccionIFDOUT[21]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 76
+    Warning (12110): Net "CPU:cpu|DireccionIFDOUT[20]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 76
+    Warning (12110): Net "CPU:cpu|DireccionIFDOUT[19]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 76
+    Warning (12110): Net "CPU:cpu|DireccionIFDOUT[18]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 76
+    Warning (12110): Net "CPU:cpu|DireccionIFDOUT[17]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 76
+    Warning (12110): Net "CPU:cpu|DireccionIFDOUT[16]" is missing source, defaulting to GND File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/CPU.v Line: 76
+Warning (276020): Inferred RAM node "CPU:cpu|RegisterBank:registerBank|RF_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "CPU:cpu|RegisterBank:registerBank|RF_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 5
+        Info (286033): Parameter NUMWORDS_A set to 32
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 5
+        Info (286033): Parameter NUMWORDS_B set to 32
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+Info (278001): Inferred 5 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "seven_segments:sevenSegs1|Mod0" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 9
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "seven_segments:sevenSegs1|Mod1" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 9
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "seven_segments:sevenSegs1|Div0" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 10
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "seven_segments:sevenSegs1|Mod2" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 10
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "seven_segments:sevenSegs1|Div1" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 11
+Info (12130): Elaborated megafunction instantiation "CPU:cpu|RegisterBank:registerBank|altsyncram:RF_rtl_0"
+Info (12133): Instantiated megafunction "CPU:cpu|RegisterBank:registerBank|altsyncram:RF_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "5"
+    Info (12134): Parameter "NUMWORDS_A" = "32"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "5"
+    Info (12134): Parameter "NUMWORDS_B" = "32"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_u2n1.tdf
+    Info (12023): Found entity 1: altsyncram_u2n1 File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/altsyncram_u2n1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "seven_segments:sevenSegs1|lpm_divide:Mod0" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 9
+Info (12133): Instantiated megafunction "seven_segments:sevenSegs1|lpm_divide:Mod0" with the following parameter: File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 9
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_l3m.tdf
+    Info (12023): Found entity 1: lpm_divide_l3m File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/lpm_divide_l3m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_olh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_olh File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/sign_div_unsign_olh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_mve.tdf
+    Info (12023): Found entity 1: alt_u_div_mve File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/alt_u_div_mve.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "seven_segments:sevenSegs1|lpm_divide:Mod1" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 9
+Info (12133): Instantiated megafunction "seven_segments:sevenSegs1|lpm_divide:Mod1" with the following parameter: File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 9
+    Info (12134): Parameter "LPM_WIDTHN" = "4"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_42m.tdf
+    Info (12023): Found entity 1: lpm_divide_42m File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/lpm_divide_42m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_7kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_7kh File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/sign_div_unsign_7kh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_kse.tdf
+    Info (12023): Found entity 1: alt_u_div_kse File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/alt_u_div_kse.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "seven_segments:sevenSegs1|lpm_divide:Div0" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 10
+Info (12133): Instantiated megafunction "seven_segments:sevenSegs1|lpm_divide:Div0" with the following parameter: File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 10
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ibm.tdf
+    Info (12023): Found entity 1: lpm_divide_ibm File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/lpm_divide_ibm.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "seven_segments:sevenSegs1|lpm_divide:Div1" File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 11
+Info (12133): Instantiated megafunction "seven_segments:sevenSegs1|lpm_divide:Div1" with the following parameter: File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 11
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_lbm.tdf
+    Info (12023): Found entity 1: lpm_divide_lbm File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/lpm_divide_lbm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_rlh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_rlh File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/sign_div_unsign_rlh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_sve.tdf
+    Info (12023): Found entity 1: alt_u_div_sve File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/alt_u_div_sve.tdf Line: 23
+Warning (12241): 7 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[0] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU:cpu|RegisterBank:registerBank|RF[5][1] File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/RegisterBank.v Line: 79
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[1] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU:cpu|RegisterBank:registerBank|RF[5][1] File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/RegisterBank.v Line: 79
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[2] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU:cpu|RegisterBank:registerBank|RF[5][1] File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/RegisterBank.v Line: 79
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[3] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU:cpu|RegisterBank:registerBank|RF[5][1] File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/RegisterBank.v Line: 79
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[4] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU:cpu|RegisterBank:registerBank|RF[5][1] File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/RegisterBank.v Line: 79
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[5] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU:cpu|RegisterBank:registerBank|RF[5][1] File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/RegisterBank.v Line: 79
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[6] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU:cpu|RegisterBank:registerBank|RF[5][1] File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/RegisterBank.v Line: 79
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[7] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seven_segments:sevenSegs1|lpm_divide:Mod2|lpm_divide_l3m:auto_generated|sign_div_unsign_olh:divider|alt_u_div_mve:divider|StageOut[156]~synth File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/alt_u_div_mve.tdf Line: 203
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[8] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seven_segments:sevenSegs1|lpm_divide:Mod2|lpm_divide_l3m:auto_generated|sign_div_unsign_olh:divider|alt_u_div_mve:divider|StageOut[157]~synth File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/alt_u_div_mve.tdf Line: 203
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[9] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seven_segments:sevenSegs1|lpm_divide:Mod2|lpm_divide_l3m:auto_generated|sign_div_unsign_olh:divider|alt_u_div_mve:divider|StageOut[157]~synth File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/alt_u_div_mve.tdf Line: 203
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[10] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seven_segments:sevenSegs1|lpm_divide:Mod2|lpm_divide_l3m:auto_generated|sign_div_unsign_olh:divider|alt_u_div_mve:divider|StageOut[157]~synth File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/alt_u_div_mve.tdf Line: 203
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[11] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seven_segments:sevenSegs1|lpm_divide:Mod2|lpm_divide_l3m:auto_generated|sign_div_unsign_olh:divider|alt_u_div_mve:divider|StageOut[157]~synth File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/alt_u_div_mve.tdf Line: 203
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[12] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seven_segments:sevenSegs1|lpm_divide:Mod2|lpm_divide_l3m:auto_generated|sign_div_unsign_olh:divider|alt_u_div_mve:divider|StageOut[156]~synth File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/alt_u_div_mve.tdf Line: 203
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[13] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seven_segments:sevenSegs1|lpm_divide:Mod2|lpm_divide_l3m:auto_generated|sign_div_unsign_olh:divider|alt_u_div_mve:divider|StageOut[156]~synth File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/db/alt_u_div_mve.tdf Line: 203
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[14] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seven_segments:sevenSegs1|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_sve:divider|op_25~synth
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[15] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seven_segments:sevenSegs1|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_sve:divider|op_23~synth
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[16] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seven_segments:sevenSegs1|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_sve:divider|op_23~synth
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[17] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seven_segments:sevenSegs1|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_sve:divider|op_23~synth
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[18] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seven_segments:sevenSegs1|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_sve:divider|op_23~synth
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[19] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seven_segments:sevenSegs1|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_sve:divider|op_25~synth
+Warning (13012): Latch seven_segments:sevenSegs1|seven_Segs[20] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/seven_segments.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seven_segments:sevenSegs1|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_sve:divider|op_25~synth
+Warning (13012): Latch CPU:cpu|ALU:alu|Flags[1] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/ALU.v Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU:cpu|PipeDE:pipeDE|ValATMP[31] File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/PipeDE.v Line: 128
+Warning (13012): Latch CPU:cpu|ALU:alu|Flags[0] has unsafe behavior File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/ALU.v Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CPU:cpu|PipeDE:pipeDE|ValBTMP[0] File: D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/PipeDE.v Line: 128
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 16 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/Process1.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 3902 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 21 output pins
+    Info (21061): Implemented 3526 logic cells
+    Info (21064): Implemented 352 RAM segments
+    Info (21062): Implemented 2 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 107 warnings
+    Info: Peak virtual memory: 807 megabytes
+    Info: Processing ended: Tue Oct 17 02:18:45 2017
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:34
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/Proyectos/Proyecto1_Arqui_I/Procesador32bits/output_files/Process1.map.smsg.
+
+
