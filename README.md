@@ -11,7 +11,7 @@ El procesador vectorial es implementado en una FPGA mientras que la aplicación 
 Para construir y ejecutar el programa requiere [CMake](https://cmake.org/download/) o superior.
 
 ```
-mkdir build
+mkdir build && cd build
 cmake ..
 make
 ./DisplayImage
