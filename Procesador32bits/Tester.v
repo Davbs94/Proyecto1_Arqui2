@@ -1,9 +1,15 @@
 module Tester(
     input clk,
-    output wire [20:0] led_Reg
+    //output wire [20:0] led_Reg
+	input [31:0] A, B,
+	input [3:0] aluCTRL,
+	output wire [31:0] out,
+	output wire [1:0] flags
     );
+	 
+	 vect_unit vect(A, B, aluCTRL, out, flags);
 
-	
+	/**
 	 wire [31:0] Reg0;
 	 wire [31:0] Reg1;
 	 wire [31:0] Reg2;
@@ -30,6 +36,12 @@ module Tester(
 	 wire [31:0] Reg23;
 	 wire [31:0] Reg24;
 	 wire [31:0] Reg25;
+	 wire [31:0] Reg26;
+	 wire [31:0] Reg27;
+	 wire [31:0] Reg28;
+	 wire [31:0] Reg29;
+	 wire [31:0] Reg30;
+	 wire [31:0] Reg31;
 	
 	 
 
@@ -43,12 +55,15 @@ clock_divider #(N)
 	.clk_out(clk_xHZ)
 );
 
-CPU cpu(clk_xHZ, Reg0, Reg1, Reg2, Reg3, Reg4, Reg5, Reg6, Reg7, Reg8, Reg9,
-Reg10, Reg11, Reg12, Reg13, Reg14, Reg15, Reg16, Reg17, Reg18, Reg19,
-Reg20, Reg21, Reg22, Reg23, Reg24, Reg25);
+CPU cpu(clk_xHZ, 
+	Reg0, Reg1, Reg2, Reg3, Reg4, Reg5, Reg6, Reg7, Reg8, Reg9,
+	Reg10, Reg11, Reg12, Reg13, Reg14, Reg15, Reg16, Reg17, Reg18, Reg19,
+	Reg20, Reg21, Reg22, Reg23, Reg24, Reg25, Reg26, Reg27, Reg28, Reg29, 
+	Reg30, Reg31);
 	
 seven_segments sevenSegs1 ( .num(Reg5), //input 
 									.seven_Segs(led_Reg) //output
 );
-						
+*/
+					
 endmodule

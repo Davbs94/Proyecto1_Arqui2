@@ -1,0 +1,55 @@
+module alu_8 (
+	input [7:0] A,
+    input [7:0] B,
+    input [3:0] CtrlFunc,
+    output reg signed [15:0] Result,
+    output reg [1:0] Flags
+	 );
+
+
+initial begin
+Result <= 0;
+Flags <= 0;
+end
+
+wire [7:0] tmp1;
+
+always@(*)
+begin
+
+if(CtrlFunc == 4'b0000) //AND
+	Result <= A & B;
+	
+else if(CtrlFunc == 4'b0001) //OR
+	Result <= A | B;
+
+else if(CtrlFunc == 4'b0010) //XOR
+	Result <= A ^ B;
+	
+else if(CtrlFunc == 4'b0011)//Suma
+	Result <= A + B;
+	
+else if(CtrlFunc == 4'b0100) //Resta
+	Result <= A - B;
+else if(CtrlFunc == 4'b0110) //not
+	Result <= ~A;
+else if(CtrlFunc == 4'b0111) //shifter
+	Result <= {A[15:0], {16{1'b0}}};
+else if(CtrlFunc == 4'b1000) //mult
+	Result <= A*B;
+else if (CtrlFunc == 4'b1001) //right shift
+	Result <= A >> B;
+else if (CtrlFunc == 4'b1010) //left shift
+	Result <= A << B;
+else if (CtrlFunc == 4'b1011) begin// circular left shift
+	tmp1 = A;
+	Result <= A << B;
+	Result <= Result | tmp1;	
+	end
+else if (CtrlFunc == 4'b1100) begin// circular right shift
+	tmp1 = A;
+	Result <= A >> B;
+	Result <= Result | tmp1;	
+	end
+end
+endmodule

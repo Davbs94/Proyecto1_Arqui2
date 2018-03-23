@@ -25,34 +25,29 @@ module CPU(
 	output wire [31:0]reg22,
 	output wire [31:0]reg23,
 	output wire [31:0]reg24,
-	output wire [31:0]reg25/**
-	//----muxDirMem----
-	output wire [4:0] DirMemResult,OpCodeIFDOUT,OpCodeIDEXOUT,
-	//---memDatos------
-	output wire [31:0] DatoOutMem,InmCorrimIFDOUT, newpc, pcout,ValBDEOUT, ValADEOUT,
-	//---pipeEm-------
-	output wire MuxDirMemEMOUT,
-	output wire MuxDatoEMOUT,
-	output wire WriteMemEMOUT,
-	output wire WriteRegEMOUT,
-	//---MEMINTRUC----
-	output wire [31:0] inst,DatoWBIN*/
+	output wire [31:0]reg25,
+	output wire [31:0]reg26,
+	output wire [31:0]reg27,
+	output wire [31:0]reg28,
+	output wire [31:0]reg29,
+	output wire [31:0]reg30,
+	output wire [31:0]reg31
 
 	);
 	
-	//----muxDirMem----
-	wire [4:0] DirMemResult,OpCodeIFDOUT,OpCodeIDEXOUT;
-	//---memDatos------
-	wire [31:0] DatoOutMem,InmCorrimIFDOUT, newpc,ValBDEOUT, ValADEOUT, pcout;
-	//---pipeEm-------
-	wire MuxDirMemEMOUT;
-	wire MuxDatoEMOUT;
-//	wire WriteMemEMOUT;
-	wire WriteRegEMOUT;
-	//---MEMINTRUC----
-	wire [31:0] inst,DatoWBIN;
+//----muxDirMem----
+wire [4:0] DirMemResult,OpCodeIFDOUT,OpCodeIDEXOUT;
+//---memDatos------
+wire [31:0] DatoOutMem,InmCorrimIFDOUT, newpc,ValBDEOUT, ValADEOUT, pcout;
+//---pipeEm-------
+wire MuxDirMemEMOUT;
+wire MuxDatoEMOUT;
+wire WriteMemEMOUT;
+wire WriteRegEMOUT;
+//---MEMINTRUC----
+wire [31:0] inst,DatoWBIN;
 //---MUXDIRECCION-
- wire [1:0] crtlMuxDireccionPC;
+wire [1:0] crtlMuxDireccionPC;
 
 //---MEMINTRUC----
 // wire [31:0] inst;
@@ -114,8 +109,13 @@ wire [31:0] D21REG;
 wire [31:0] D22REG;
 wire [31:0] D23REG;
 wire [31:0] D24REG;
-
 wire [31:0] D25REG;
+wire [31:0] D26REG;
+wire [31:0] D27REG;
+wire [31:0] D28REG;
+wire [31:0] D29REG;
+wire [31:0] D30REG;
+wire [31:0] D31REG;
 	 
 wire [31:0] OutputAREG;
 wire [31:0] OutputBREG;
@@ -164,9 +164,13 @@ wire [31:0] D21DEOUT;
 wire [31:0] D22DEOUT;
 wire [31:0] D23DEOUT;
 wire [31:0] D24DEOUT;
-	 
-//wire [31:0] ValADEOUT;
-//wire [31:0] ValBDEOUT;
+wire [31:0] D25DEOUT;
+wire [31:0] D26DEOUT;
+wire [31:0] D27DEOUT;
+wire [31:0] D28DEOUT;
+wire [31:0] D29DEOUT;
+wire [31:0] D30DEOUT;
+wire [31:0] D31DEOUT;
 
 wire [4:0] DirWriteDEOUT;
 //wire numero mayor
@@ -186,16 +190,13 @@ wire [31:0]DirWriteEMIN;
 
 
 	 
-//wire [31:0] DirMemCargaEMOUT;
+wire [31:0] DirMemCargaEMOUT;
 wire [31:0] DatoResultEMOUT;
 wire [31:0] DirMemRegBOUT;
 wire [4:0] DirWriteEMOUT;
 
+wire crtlMuxDirB;
 
-
-
-//wire [31:0] DireccionVGA;
-//wire [31:0] DatoOutMemVGA;
 //----muxDato------
 //wire [31:0] DatoWBIN; 
 //----pipeWB-------
@@ -209,7 +210,7 @@ PC pc(clk,newpc,pcout);
 
 Mux4x1 MuxDireccionPC(outpc4,DireccionIFDOUT, InmCorrimDEXOUT, valorNull,crtlMuxDireccionPC,newpc);
 
-MemInst memInst(pcout,clk,inst);
+//MemInst memInst(pcout,clk,inst);
 
 PipeIFD pipeIFD(clk,inst,OpCodeIFDOUT,DireccionIFDOUT,DirRegAIFDOUT,DirRegBIFDOUT,InmCorrimIFDOUT,
 					DirWriteIFDOUT);
@@ -253,7 +254,7 @@ PipeEM pipeEm(clk,MuxDirMemDEOUT,MuxDatoDEOUT,WriteMemDEOUT,WriteRegDEOUT,ValADE
 
 Mux2x1 muxDirMem(DirMemCargaEMOUT,DirMemRegBOUT,MuxDirMemEMOUT,DirMemResult);
 
-MemDatos memDatos(ValAREG,clk,DatoResultEMOUT,WriteMemEMOUT,DatoOutMem);	
+//MemDatos memDatos(ValAREG,clk,DatoResultEMOUT,WriteMemEMOUT,DatoOutMem);	
 
 Mux2x1 muxDato(DatoOutMem,DatoResultEMOUT,MuxDatoEMOUT,DatoWBIN);
 
@@ -287,5 +288,11 @@ assign reg22 = D22REG;
 assign reg23 = D23REG;
 assign reg24 = D24REG;
 assign reg25 = D25REG;
+assign reg26 = D26REG;
+assign reg27 = D27REG;
+assign reg28 = D28REG;
+assign reg29 = D29REG;
+assign reg30 = D30REG;
+assign reg31 = D31REG;
 						
 endmodule

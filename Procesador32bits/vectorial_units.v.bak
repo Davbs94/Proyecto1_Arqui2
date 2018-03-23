@@ -1,0 +1,11 @@
+module vect_unit (
+	input [31:0] operA, operB,
+	input [3:0] CtrlFunc,
+	output wire [31:0] result;
+	);
+
+alu_8b alu_8b1 (operA[31:24],operB[31:24], CtrlFunc, result[31:24]);
+alu_8b alu_8b2 (operA[24:16],operB[24:16], CtrlFunc, result[24:16]);
+alu_8b alu_8b3 (operA[16:8],operB[16:8], CtrlFunc, result[16:8]);
+alu_8b alu_8b4 (operA[7:0],operB[7:0], CtrlFunc, result[7:0]);
+endmodule
