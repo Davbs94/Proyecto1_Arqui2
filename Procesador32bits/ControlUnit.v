@@ -181,7 +181,7 @@ begin
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
 	end
-	//cargar registro
+	//cargar registro LV - LW
 	else if(Opcode == 5'b01010)
 	begin
 		 MuxDireccionPC <= 0;
@@ -196,7 +196,7 @@ begin
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
 	end
-	//cargar inmediato
+	//cargar inmediato LVI - LWI
 	else if(Opcode == 5'b01011)
 	begin
 		 MuxDireccionPC <= 0;
@@ -211,7 +211,7 @@ begin
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
 	end
-	//almacenar registro
+	//almacenar registro SV - SW
 	//preguntarmuxdato
 	else if(Opcode == 5'b01100)
 	begin
@@ -457,13 +457,118 @@ begin
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 0;
 	end
+	//ADDV
+	else if(Opcode == 5'b11000)
+	begin 
+		 MuxDireccionPC <= 0;
+		 MuxSelDirRegB <= 0;
+		 crtlMuxValA <= 0;
+		 crtlMuxValB <= 0;
+		 CodigoALUIN <= 4'b0011;
+		 MuxResultIN <= 2'b10;
+		 MuxDirWriteIN <= 0;
+		 MuxDirMemIN <= 1;
+		 MuxDatoIN <= 1;
+		 WriteMemIN <= 0;
+		 WriteRegIN <= 1;
+	end
+	//ADDVI
+	else if(Opcode == 5'b11001)
+	begin
+		 MuxDireccionPC <= 0;
+		 MuxSelDirRegB <= 0;
+		 crtlMuxValA <= 0;
+		 crtlMuxValB <= 1;
+		 CodigoALUIN <= 4'b0011;
+		 MuxResultIN <= 2'b10;
+		 MuxDirWriteIN <= 0;
+		 MuxDirMemIN <= 1;
+		 MuxDatoIN <= 1;
+		 WriteMemIN <= 0;
+		 WriteRegIN <= 1;
+	end
+	//XORV
+	else if(Opcode == 5'b11010)
+	begin
+		 MuxDireccionPC <= 0;
+		 MuxSelDirRegB <= 0;
+		 crtlMuxValA <= 0;
+		 crtlMuxValB <= 0;
+		 CodigoALUIN <= 4'b0010;
+		 MuxResultIN <= 2'b10;
+		 MuxDirWriteIN <= 0;
+		 MuxDirMemIN <= 1;
+		 MuxDatoIN <= 1;
+		 WriteMemIN <= 0;
+		 WriteRegIN <= 1;
+	end
+	//SLLV
+	else if(Opcode == 5'b11011)
+	begin
+		 MuxDireccionPC <= 0;
+		 MuxSelDirRegB <= 0;
+		 crtlMuxValA <= 0;
+		 crtlMuxValB <= 0;
+		 CodigoALUIN <= 4'b1010;
+		 MuxResultIN <= 2'b10;
+		 MuxDirWriteIN <= 0;
+		 MuxDirMemIN <= 1;
+		 MuxDatoIN <= 1;
+		 WriteMemIN <= 0;
+		 WriteRegIN <= 1;
+	end
+	//SRLV
+	else if(Opcode == 5'b11100)
+	begin
+		 MuxDireccionPC <= 0;
+		 MuxSelDirRegB <= 0;
+		 crtlMuxValA <= 0;
+		 crtlMuxValB <= 0;
+		 CodigoALUIN <= 4'b1001;
+		 MuxResultIN <= 2'b10;
+		 MuxDirWriteIN <= 0;
+		 MuxDirMemIN <= 1;
+		 MuxDatoIN <= 1;
+		 WriteMemIN <= 0;
+		 WriteRegIN <= 1;
+	end
+	//SLLVC
+	else if(Opcode == 5'b11101)
+	begin
+		 MuxDireccionPC <= 0;
+		 MuxSelDirRegB <= 0;
+		 crtlMuxValA <= 0;
+		 crtlMuxValB <= 0;
+		 CodigoALUIN <= 4'b1011;
+		 MuxResultIN <= 2'b10;
+		 MuxDirWriteIN <= 0;
+		 MuxDirMemIN <= 1;
+		 MuxDatoIN <= 1;
+		 WriteMemIN <= 0;
+		 WriteRegIN <= 1;
+	end
+	//SRLVC
+	else if(Opcode == 5'b11110)
+	begin
+		 MuxDireccionPC <= 0;
+		 MuxSelDirRegB <= 0;
+		 crtlMuxValA <= 0;
+		 crtlMuxValB <= 0;
+		 CodigoALUIN <= 4'b1100;
+		 MuxResultIN <= 2'b10;
+		 MuxDirWriteIN <= 0;
+		 MuxDirMemIN <= 1;
+		 MuxDatoIN <= 1;
+		 WriteMemIN <= 0;
+		 WriteRegIN <= 1;
+	end
 	else
 	begin
 		 MuxDireccionPC <= 0;
 		 MuxSelDirRegB <= 0;
 		 crtlMuxValA <= 0;
 		 crtlMuxValB <= 0;
-		 CodigoALUIN <= 3'b000;
+		 CodigoALUIN <= 4'b000;
 		 MuxResultIN <= 2'b00;
 		 MuxDirWriteIN <= 0;
 		 MuxDirMemIN <= 0;

@@ -1,5 +1,5 @@
 Flow report for Process1
-Thu Mar 22 15:41:39 2018
+Thu Mar 22 22:15:34 2018
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Thu Mar 22 15:41:39 2018       ;
+; Flow Status                     ; Successful - Thu Mar 22 22:15:34 2018       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; Process1                                    ;
 ; Top-level Entity Name           ; Tester                                      ;
@@ -107,7 +107,13 @@ agreement for further details.
 ; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 1134 MB             ; 00:00:01                           ;
 ; EDA Netlist Writer   ; 00:00:04     ; 1.0                     ; 1130 MB             ; 00:00:01                           ;
 ; EDA Netlist Writer   ; 00:00:04     ; 1.0                     ; 1135 MB             ; 00:00:01                           ;
-; Total                ; 00:00:32     ; --                      ; --                  ; 00:00:52                           ;
+; EDA Netlist Writer   ; 00:00:06     ; 1.0                     ; 1130 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:04     ; 1.0                     ; 1134 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:04     ; 1.0                     ; 1130 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:04     ; 1.0                     ; 1135 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:05     ; 1.0                     ; 1130 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:05     ; 1.0                     ; 1135 MB             ; 00:00:01                           ;
+; Total                ; 00:01:00     ; --                      ; --                  ; 00:00:58                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -123,6 +129,12 @@ agreement for further details.
 ; EDA Netlist Writer   ; jairo            ; Ubuntu 16.04.4 ; 16         ; x86_64         ;
 ; EDA Netlist Writer   ; jairo            ; Ubuntu 16.04.4 ; 16         ; x86_64         ;
 ; EDA Netlist Writer   ; jairo            ; Ubuntu 16.04.4 ; 16         ; x86_64         ;
+; EDA Netlist Writer   ; jairo            ; Ubuntu 16.04.4 ; 16         ; x86_64         ;
+; EDA Netlist Writer   ; jairo            ; Ubuntu 16.04.4 ; 16         ; x86_64         ;
+; EDA Netlist Writer   ; jairo            ; Ubuntu 16.04.4 ; 16         ; x86_64         ;
+; EDA Netlist Writer   ; jairo            ; Ubuntu 16.04.4 ; 16         ; x86_64         ;
+; EDA Netlist Writer   ; jairo            ; Ubuntu 16.04.4 ; 16         ; x86_64         ;
+; EDA Netlist Writer   ; jairo            ; Ubuntu 16.04.4 ; 16         ; x86_64         ;
 +----------------------+------------------+----------------+------------+----------------+
 
 
@@ -130,6 +142,12 @@ agreement for further details.
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off Process1 -c Process1
+quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off Process1 -c Process1 --vector_source=/home/jairo-mm26/Documents/Jairo/Documents/Arqui1/Proyecto1_Arqui_I/Procesador32bits/Waveform.vwf --testbench_file=/home/jairo-mm26/Documents/Jairo/Documents/Arqui1/Proyecto1_Arqui_I/Procesador32bits/simulation/qsim/Waveform.vwf.vt
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=/home/jairo-mm26/Documents/Jairo/Documents/Arqui1/Proyecto1_Arqui_I/Procesador32bits/simulation/qsim/ Process1 -c Process1
+quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off Process1 -c Process1 --vector_source=/home/jairo-mm26/Documents/Jairo/Documents/Arqui1/Proyecto1_Arqui_I/Procesador32bits/Waveform.vwf --testbench_file=/home/jairo-mm26/Documents/Jairo/Documents/Arqui1/Proyecto1_Arqui_I/Procesador32bits/simulation/qsim/Waveform.vwf.vt
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=/home/jairo-mm26/Documents/Jairo/Documents/Arqui1/Proyecto1_Arqui_I/Procesador32bits/simulation/qsim/ Process1 -c Process1
+quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off Process1 -c Process1 --vector_source=/home/jairo-mm26/Documents/Jairo/Documents/Arqui1/Proyecto1_Arqui_I/Procesador32bits/Waveform.vwf --testbench_file=/home/jairo-mm26/Documents/Jairo/Documents/Arqui1/Proyecto1_Arqui_I/Procesador32bits/simulation/qsim/Waveform.vwf.vt
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=/home/jairo-mm26/Documents/Jairo/Documents/Arqui1/Proyecto1_Arqui_I/Procesador32bits/simulation/qsim/ Process1 -c Process1
 quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off Process1 -c Process1 --vector_source=/home/jairo-mm26/Documents/Jairo/Documents/Arqui1/Proyecto1_Arqui_I/Procesador32bits/Waveform.vwf --testbench_file=/home/jairo-mm26/Documents/Jairo/Documents/Arqui1/Proyecto1_Arqui_I/Procesador32bits/simulation/qsim/Waveform.vwf.vt
 quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=/home/jairo-mm26/Documents/Jairo/Documents/Arqui1/Proyecto1_Arqui_I/Procesador32bits/simulation/qsim/ Process1 -c Process1
 quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off Process1 -c Process1 --vector_source=/home/jairo-mm26/Documents/Jairo/Documents/Arqui1/Proyecto1_Arqui_I/Procesador32bits/Waveform.vwf --testbench_file=/home/jairo-mm26/Documents/Jairo/Documents/Arqui1/Proyecto1_Arqui_I/Procesador32bits/simulation/qsim/Waveform.vwf.vt
