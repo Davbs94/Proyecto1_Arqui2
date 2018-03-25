@@ -23,12 +23,13 @@ int main()
         {
             try
             {
-                int result = encrypt::encrypt(image_gray.at<uchar>(i, j), key);
+                int result = encrypt::encryptXOR(image_gray.at<uchar>(i, j), key);
                 image_gray.at<uchar>(i, j) = result;
             }
             catch (std::invalid_argument& exc)
             {
-                std::cout << exc.what() << std::endl;
+                std::cout << exc.what() << std::endl; // TODO: Mejor manejo de la excepcion.
+                break;
             }
         }
     }
