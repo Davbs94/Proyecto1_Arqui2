@@ -4,6 +4,6 @@ project( DisplayImage )
 
 find_package( OpenCV REQUIRED )
 
-add_executable( DisplayImage main.cpp )
+add_executable( DisplayImage main.cpp ./src/encrypt.cpp )
 
 target_link_libraries( DisplayImage ${OpenCV_LIBS} )

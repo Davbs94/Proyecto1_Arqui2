@@ -1,47 +1,42 @@
 #include <stdio.h>
+#include <bitset>
 #include <opencv2/opencv.hpp>
+#include "./include/encrypt.h"
 
-using namespace cv;
-
-int main(int argc, char** argv )
+int main()
 {
-    if ( argc != 2 )
+    int key = 89;
+    cv::Mat image, image_gray;
+    image = cv::imread("/home/andres/Documents/ArquiII/Proyecto1_Arqui2/lenna.png", 1);
+    cv::cvtColor(image, image_gray, CV_RGB2GRAY);
+
+    if (!image.data)
     {
-        printf("usage: DisplayImage.out <Image_Path>\n");
+        std::cout << "Error abriendo la imagen" << std::endl;
         return -1;
     }
 
-    Mat image, image_gray;
-    image = imread( argv[1], 1 );
-	cvtColor(image,image_gray,CV_RGB2GRAY);
-
-    if ( !image.data )  
+    int pixel[image_gray.rows][image_gray.cols];
+    for (int i = 0; i < image_gray.rows; ++i)
     {
-        printf("No image data \n");
-        return -1;
+        for (int j = 0; j < image_gray.cols; ++j)
+        {
+            try
+            {
+                int result = encrypt::encrypt(image_gray.at<uchar>(i, j), key);
+                image_gray.at<uchar>(i, j) = result;
+            }
+            catch (std::invalid_argument& exc)
+            {
+                std::cout << exc.what() << std::endl;
+            }
+        }
     }
-    
-    int pixels[image.rows][image.cols] ;
-     
-	
-	for(int j=0;j<image.rows;j++) 
-	{
-		for (int i=0;i<image.cols;i++)
-		{
-			if( i== j)   
-				pixels[j][i] = image.at<uchar>(j,i); 
-		}		
-	}
 
-    
-    printf("%d\n",pixels[100][100]);
-    
-    
-    namedWindow("Display Image", WINDOW_AUTOSIZE );
-    imshow("Display Image", image_gray);
+    cv::namedWindow("Image result", cv::WINDOW_AUTOSIZE);
+    cv::imshow("Image result", image_gray);
 
-    waitKey(0);
-    
+    cv::waitKey(0);
 
     return 0;
 }
