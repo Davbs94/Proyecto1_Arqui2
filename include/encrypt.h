@@ -3,7 +3,8 @@
 
 #include <bitset>
 
-namespace encrypt {
+namespace encrypt
+{
     typedef std::bitset<8> BYTE;
     typedef std::bitset<16> INT;
 
@@ -12,4 +13,5 @@ namespace encrypt {
     int encryptXOR(int, int);
     int encryptSShift(int, int, bool);
 }
+
 #endif

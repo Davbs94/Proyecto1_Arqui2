@@ -23,16 +23,12 @@ static int encrypt::toDec(encrypt::INT value)
 
 /** Encrypts the value of an integer by applying
  * an XOR operation between said integer and an 8 bit key.
- * @param originalValue The integer value about to be encrypted.
+ * @param originalValue The integer value to be encrypted.
  * @param key The 8 bit key value (Max value: 256).
  * @return The resulting encrypted integer.
  */
 int encrypt::encryptXOR(int originalValue, int key)
 {
-    if (key > 256)
-    {
-        throw std::invalid_argument("Key value must be an 8 bit integer (Max value: 256)");
-    }
     encrypt::INT keyBin = toBin(key);
     encrypt::INT binaryOgValue = toBin(originalValue);
     return toDec(binaryOgValue ^ keyBin);
@@ -40,17 +36,13 @@ int encrypt::encryptXOR(int originalValue, int key)
 
 /** Encrypts the value of an integer by applying
  * a simple binary shift operation. Warning: This method causes data loss.
- * @param originalValue The integer value about to be encrypted.
+ * @param originalValue The integer value to be encrypted.
  * @param offset The amount of positions the value will be shifted (Between 1 and 7).
  * @param right If true will shift to the right, if false will shift to the left.
  * @return The resulting encrypted integer.
  */
 int encrypt::encryptSShift(int originalValue, int offset, bool right)
 {
-    if (offset < 1 || offset > 7)
-    {
-        throw std::invalid_argument("Offset value must be a number between 1 and 7.");
-    }
     encrypt::INT binaryOgValue = toBin(originalValue);
     if (right)
     {

@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
-
-project( DisplayImage )
-
+set (CMAKE_CXX_STANDARD 11)
+project( image-crypt )
 find_package( OpenCV REQUIRED )
-
-add_executable( DisplayImage main.cpp ./src/encrypt.cpp )
-
-target_link_libraries( DisplayImage ${OpenCV_LIBS} )
+add_executable( image-crypt main.cpp ./src/encrypt.cpp ./src/image.cpp )
+target_link_libraries( image-crypt ${OpenCV_LIBS} )
