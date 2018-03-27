@@ -10,5 +10,6 @@ namespace encrypt {
     static INT toBin(int);
     static int toDec(INT);
     int encryptXOR(int, int);
+    int encryptSShift(int, int, bool);
 }
 #endif

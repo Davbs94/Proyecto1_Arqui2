@@ -5,7 +5,7 @@
 
 int main()
 {
-    int key = 89;
+    int offset = 2;
     cv::Mat image, image_gray;
     image = cv::imread("/home/andres/Documents/ArquiII/Proyecto1_Arqui2/lenna.png", 1);
     cv::cvtColor(image, image_gray, CV_RGB2GRAY);
@@ -23,7 +23,7 @@ int main()
         {
             try
             {
-                int result = encrypt::encryptXOR(image_gray.at<uchar>(i, j), key);
+                int result = encrypt::encryptSShift(image_gray.at<uchar>(i, j), offset, false);
                 image_gray.at<uchar>(i, j) = result;
             }
             catch (std::invalid_argument& exc)
