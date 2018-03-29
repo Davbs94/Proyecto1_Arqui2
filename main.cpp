@@ -16,6 +16,8 @@ void print_help()
     std::cout << "   -x --xor key                   Performs XOR encrypt with a given key." << std::endl;
     std::cout << "   -l --lsshift offset            Performs Simple left shift encrypt with a given offset." << std::endl;
     std::cout << "   -r --rsshift offset            Performs Simple right shift encrypt with a given offset." << std::endl;
+    std::cout << "   -v --rcshift offset            Performs Circular right shift encrypt with a given offset." << std::endl;
+    std::cout << "   -c --lcshift offset            Performs Simple left shift encrypt with a given offset." << std::endl;
     std::cout << std::endl;
 }
 
@@ -28,6 +30,8 @@ int main(int argc, char *argv[])
         {"xor", required_argument, NULL, 'x'},
         {"lsshift", required_argument, NULL, 'l'},
         {"rsshift", no_argument, NULL, 'r'},
+        {"rcshift", required_argument, NULL, 'v'},
+        {"lcshift", required_argument, NULL, 'c'},
         {NULL, 0, NULL, 0}};
     int value, key, offset;
     cv::Mat image, image_gray;
@@ -39,7 +43,7 @@ int main(int argc, char *argv[])
     }
 
     // This while loop parses the given command line arguments and call the respective functions.
-    while ((value = getopt_long(argc, argv, "f:x:", longOptions, NULL)) != -1)
+    while ((value = getopt_long(argc, argv, "f:x:r:l:c:v", longOptions, NULL)) != -1)
     {
         switch (value)
         {
@@ -50,7 +54,7 @@ int main(int argc, char *argv[])
             image = cv::imread(optarg, 1);
             if (!image.data)
             {
-                std::cout << "Error abriendo la imagen" << std::endl;
+                std::cout << "Error opening file" << std::endl;
                 return -1;
             }
             cv::cvtColor(image, image_gray, CV_RGB2GRAY);
@@ -82,6 +86,28 @@ int main(int argc, char *argv[])
             try
             {
                 imageCrypt::encryptSShift(&image_gray, offset, false);
+            }
+            catch (std::invalid_argument &exc)
+            {
+                std::cout << "ERROR: " << exc.what() << std::endl;
+            }
+            break;
+        case 'v':
+            offset = std::stoi(optarg, NULL, 10);
+            try
+            {
+                imageCrypt::encryptCShift(&image_gray, offset, true);
+            }
+            catch (std::invalid_argument &exc)
+            {
+                std::cout << "ERROR: " << exc.what() << std::endl;
+            }
+            break;
+        case 'c':
+            offset = std::stoi(optarg, NULL, 10);
+            try
+            {
+                imageCrypt::encryptCShift(&image_gray, offset, true);
             }
             catch (std::invalid_argument &exc)
             {

@@ -7,6 +7,7 @@ namespace imageCrypt
 {
     void encryptXOR(cv::Mat*, int);
     void encryptSShift(cv::Mat*, int, bool);
+    void encryptCShift(cv::Mat*, int, bool);
 }
 
 #endif

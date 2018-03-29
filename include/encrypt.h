@@ -12,6 +12,7 @@ namespace encrypt
     static int toDec(INT);
     int encryptXOR(int, int);
     int encryptSShift(int, int, bool);
+    int encryptCShift(int, int, bool);
 }
 
 #endif

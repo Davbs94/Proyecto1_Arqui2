@@ -1,4 +1,5 @@
 #include <bitset>
+#include <iostream>
 #include <stdexcept>
 #include "../include/encrypt.h"
 
@@ -8,7 +9,7 @@
  */
 static encrypt::INT encrypt::toBin(int value)
 {
-    encrypt::INT result(value);
+    INT result(value);
     return result;
 }
 
@@ -29,8 +30,8 @@ static int encrypt::toDec(encrypt::INT value)
  */
 int encrypt::encryptXOR(int originalValue, int key)
 {
-    encrypt::INT keyBin = toBin(key);
-    encrypt::INT binaryOgValue = toBin(originalValue);
+    INT keyBin = toBin(key);
+    INT binaryOgValue = toBin(originalValue);
     return toDec(binaryOgValue ^ keyBin);
 }
 
@@ -43,13 +44,34 @@ int encrypt::encryptXOR(int originalValue, int key)
  */
 int encrypt::encryptSShift(int originalValue, int offset, bool right)
 {
-    encrypt::INT binaryOgValue = toBin(originalValue);
+    INT binaryOgValue = toBin(originalValue);
     if (right)
     {
-        return toDec(binaryOgValue >>= offset);
+        return toDec(binaryOgValue >> offset);
     }
     else
     {
-        return toDec(binaryOgValue <<= offset);
+        return toDec(binaryOgValue << offset);
+    }
+}
+
+/** Encrypts the value of an integer by applying
+ * a circular binary shift operation.
+ * @param originalValue The integer value to be encrypted.
+ * @param offset The amount of positions the value will be shifted (Between 1 and 7).
+ * @param right If true will shift to the right, if false will shift to the left.
+ * @return The resulting encrypted integer.
+ */
+int encrypt::encryptCShift(int originalValue, int offset, bool right)
+{
+    INT binaryOgValue = toBin(originalValue);
+    if (right)
+    {
+        // 16 = The number of bits.
+        return toDec(binaryOgValue >> offset | binaryOgValue << (16 - offset));
+    }
+    else
+    {
+        return toDec(binaryOgValue << offset | binaryOgValue >> (16 - offset));
     }
 }
