@@ -18,6 +18,8 @@ void print_help()
     std::cout << "   -r --rsshift offset            Performs Simple right shift encrypt with a given offset." << std::endl;
     std::cout << "   -v --rcshift offset            Performs Circular right shift encrypt with a given offset." << std::endl;
     std::cout << "   -c --lcshift offset            Performs Simple left shift encrypt with a given offset." << std::endl;
+    std::cout << "   -s --psum                      Performs Simple positive sum encrypt with a given vector." << std::endl;
+    std::cout << "   -n --nsum                      Performs Simple negative sum encrypt with a given vector." << std::endl;
     std::cout << std::endl;
 }
 
@@ -32,9 +34,21 @@ int main(int argc, char *argv[])
         {"rsshift", no_argument, NULL, 'r'},
         {"rcshift", required_argument, NULL, 'v'},
         {"lcshift", required_argument, NULL, 'c'},
+        {"psum", no_argument, NULL, 's'},
+        {"rsum", no_argument, NULL, 'n'},
+        {"value1", required_argument, NULL, '1'},
+        {"value2", required_argument, NULL, '2'},
+        {"value3", required_argument, NULL, '3'},
+        {"value4", required_argument, NULL, '4'},
         {NULL, 0, NULL, 0}};
     int value, key, offset;
     cv::Mat image, image_gray;
+    int *sumVector = new int[4]; // Vector used to hold sum algoritm's values.
+    bool *validationVector = new bool[4]; // Checks if said position of the sum algorithm's value has been set.
+    for (int i = 0; i < 4; ++i)
+    {
+        validationVector[i] = false;
+    }
 
     if (argc == 1) // If no arguments are passed, show the help dialog.
     {
@@ -43,7 +57,7 @@ int main(int argc, char *argv[])
     }
 
     // This while loop parses the given command line arguments and call the respective functions.
-    while ((value = getopt_long(argc, argv, "f:x:r:l:c:v", longOptions, NULL)) != -1)
+    while ((value = getopt_long(argc, argv, "f:x:r:l:c:v:n:1:2:3:4:s", longOptions, NULL)) != -1)
     {
         switch (value)
         {
@@ -114,6 +128,44 @@ int main(int argc, char *argv[])
                 std::cout << "ERROR: " << exc.what() << std::endl;
             }
             break;
+        case 's':
+            for (int i = 0; i < 4; ++i) // Checking if all 4 values have been set.
+            {
+                if (!validationVector[i])
+                {
+                    std::cout << "ERROR: Sum algorithm requires all 4 numbers" << std::endl;
+                    return 0;
+                }
+            }
+            imageCrypt::encryptSum(&image_gray, sumVector, true);
+            break;
+        case 'n':
+            for (int i = 0; i < 4; ++i) // Checking if all 4 values have been set.
+            {
+                if (!validationVector[i])
+                {
+                    std::cout << "ERROR: Sum algorithm requires all 4 numbers" << std::endl;
+                    return 0;
+                }
+            }
+            imageCrypt::encryptSum(&image_gray, sumVector, false);
+            break;
+        case '1':
+            sumVector[0] = std::stoi(optarg, NULL, 10);
+            validationVector[0] = true;
+            break;
+        case '2':
+            sumVector[1] = std::stoi(optarg, NULL, 10);
+            validationVector[1] = true;
+            break;
+        case '3':
+            sumVector[2] = std::stoi(optarg, NULL, 10);
+            validationVector[2] = true;
+            break;
+        case '4':
+            sumVector[3] = std::stoi(optarg, NULL, 10);
+            validationVector[3] = true;
+            break;
         case '?':
             print_help();
             return 0;
@@ -125,6 +177,8 @@ int main(int argc, char *argv[])
     cv::imshow("Image result", image_gray);
 
     cv::waitKey(0);
+    delete sumVector;
+    delete validationVector;
 
     return 0;
 }

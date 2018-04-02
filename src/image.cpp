@@ -70,3 +70,32 @@ void imageCrypt::encryptCShift(cv::Mat *image, int offset, bool right)
         }
     }
 }
+
+/** Applies the simple sum encryption algorithm to a given OpenCV matrix.
+ * Warning: Causes data loss. If sum result is greater than 255, 255 will be taken as a result.
+ * Negative case: If sum result is negative, 0 will be taken as a result.
+ * @param image The OpenCV matrix to be encrypted.
+ * @param vector The 4 value vector to sum.
+ * @param sum If true will sum positive, if false will sum negative.
+ */
+void imageCrypt::encryptSum(cv::Mat *image, int *vector, bool sum)
+{
+    int counter = 0;
+    for (int i = 0; i < (*image).rows; ++i)
+    {
+        for (int j = 0; j < (*image).cols; ++j)
+        {
+            if (counter > 3)
+            {
+                counter = 0;
+                (*image).at<uchar>(i, j) = encrypt::encryptSum((*image).at<uchar>(i, j), vector[counter], sum);
+                counter++;
+            }
+            else
+            {
+                (*image).at<uchar>(i, j) = encrypt::encryptSum((*image).at<uchar>(i, j), vector[counter], sum);
+                counter++;
+            }
+        }
+    }
+}

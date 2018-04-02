@@ -10,9 +10,11 @@ namespace encrypt
 
     static INT toBin(int);
     static int toDec(INT);
+    static int numDigits(int);
     int encryptXOR(int, int);
     int encryptSShift(int, int, bool);
     int encryptCShift(int, int, bool);
+    int encryptSum(int, int, bool);
 }
 
 #endif

@@ -1,5 +1,4 @@
 #include <bitset>
-#include <iostream>
 #include <stdexcept>
 #include "../include/encrypt.h"
 
@@ -75,3 +74,39 @@ int encrypt::encryptCShift(int originalValue, int offset, bool right)
         return toDec(binaryOgValue << offset | binaryOgValue >> (16 - offset));
     }
 }
+
+/** Applies the simple sum encryption algorithm to a given OpenCV matrix.
+ * Warning: Causes data loss. If sum result is greater than 255, 255 will be taken as a result.
+ * Negative case: If sum result is negative, 0 will be taken as a result.
+ * @param originalValue The pixel's original value..
+ * @param sumVaue The value to sum.
+ * @param sum If true will sum positive, if false will sum negative.
+ */
+int encrypt::encryptSum(int originalValue, int sumValue, bool sum)
+{
+    if (sum)
+    {
+        int result = originalValue + sumValue;
+        if (result > 255)
+        {
+            return 255;
+        }
+        else
+        {
+            return result;
+        }
+    }
+    else
+    {
+        int result = originalValue - sumValue;
+        if (result < 0)
+        {
+            return 0;
+        }
+        else
+        {
+            return result;
+        }
+    }
+}
+    
