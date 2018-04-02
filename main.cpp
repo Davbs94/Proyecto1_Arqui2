@@ -174,7 +174,8 @@ int main(int argc, char *argv[])
 
     // Shows the result:
     cv::namedWindow("Image result", cv::WINDOW_AUTOSIZE);
-    cv::imshow("Image result", image_gray);
+    cv::imshow("Image result", image_gray); // Optional
+    cv::imwrite("result.jpg", image_gray);
 
     cv::waitKey(0);
     delete sumVector;
