@@ -45,14 +45,6 @@
 			  4'b1001 : seven_Segs[20:14] <= 7'b0011000; //put 9 on display 3
 			  default : seven_Segs[20:14] <= 7'b1000000; //put 0 on display 3
 		  endcase
-	end/*
-	always@(num) begin
-		case(num)
-			8'b01001100: seven_Segs <= 21'b100000010000001000111;
-			8'b01101111: seven_Segs <= 21'b100000010000001000000;
-			8'b01100101: seven_Segs <= 21'b100000010000001000110;
-		endcase
-	
-	end*/
+	end
 	
 endmodule

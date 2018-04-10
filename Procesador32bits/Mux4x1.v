@@ -14,15 +14,14 @@ end
 always @(*)
 begin
 
-if(ctrl == 2'b00)
-	O <= A;	
-else if(ctrl == 2'b01)
-	O <= B;
-else if(ctrl == 2'b10)
-	O <= C;
-else
-	O <= D;
-
+	if(ctrl == 2'b00)
+		O <= A;	
+	else if(ctrl == 2'b01)
+		O <= B;
+	else if(ctrl == 2'b10)
+		O <= C;
+	else
+		O <= D;
 end
 
 endmodule

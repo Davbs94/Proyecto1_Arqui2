@@ -1,15 +1,17 @@
 module Tester(
     input clk,
-    //output wire [20:0] led_Reg
-	input [31:0] A, B,
+    output wire [20:0] led_Reg
+	/**input [31:0] A, B,
 	input [3:0] aluCTRL,
+	input [7:0] Inm,
+	input aluMux,
 	output wire [31:0] out,
-	output wire [1:0] flags
+	output wire [1:0] flags*/
     );
 	 
-	 vect_unit vect(A, B, aluCTRL, out, flags);
+	 //vect_unit vect(A, B, Inm, aluMux, aluCTRL, out, flags);
 
-	/**
+	
 	 wire [31:0] Reg0;
 	 wire [31:0] Reg1;
 	 wire [31:0] Reg2;
@@ -64,6 +66,6 @@ CPU cpu(clk_xHZ,
 seven_segments sevenSegs1 ( .num(Reg5), //input 
 									.seven_Segs(led_Reg) //output
 );
-*/
+
 					
 endmodule

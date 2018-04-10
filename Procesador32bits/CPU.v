@@ -124,6 +124,7 @@ wire [31:0] OutputBREG;
 //wire ModEsp;
 wire [3:0] CodigoALU;
 wire [1:0] MuxResult;
+wire aluMux;
 wire MuxDirWrite;
 wire MuxDirMem;
 wire MuxDato;
@@ -218,14 +219,14 @@ PipeIFD pipeIFD(clk,inst,OpCodeIFDOUT,DireccionIFDOUT,DirRegAIFDOUT,DirRegBIFDOU
 Adder pcplus4(pcout,pc4,outpc4);
 
 ControlUnit unidadControl(OpCodeIFDOUT,OpCodeIDEXOUT,flagsALU,crtlMuxDireccionPC,crtlMuxDirB,crtlMuxValA,crtlMuxValB,
-								  CodigoALU,MuxResult,MuxDirWrite,MuxDirMem,MuxDato,WriteMem,WriteReg);
+								  CodigoALU,MuxResult,MuxDirWrite,MuxDirMem,MuxDato,WriteMem,WriteReg, aluMux);
 								  
 Mux2x1 muxDirRegB(DirRegBIFDOUT,DirWriteIFDOUT,crtlMuxDirB,DirRegB);							
 
 RegisterBank registerBank(clk, WriteRegMWBOUT,DirRegAIFDOUT,DirRegB,DirWriteMWBOUT,DatoMWBOUT,
 					           D0REG,D1REG,D2REG,D3REG,D4REG,D5REG,D6REG,D7REG,D8REG,D9REG,D10REG,D11REG,
 								  D12REG,D13REG,D14REG,D15REG,D16REG,D17REG,D18REG,D19REG,D20REG,D21REG,D22REG,
-								  D23REG,D24REG,D25REG,OutputAREG,OutputBREG);
+								  D23REG,D24REG,D25REG, D26REG,D27REG,D28REG,D29REG,D30REG,D31REG,OutputAREG,OutputBREG);
 								  
 								  
 Mux2x1 muxValA(OutputAREG,InmCorrimIFDOUT,crtlMuxValA,ValAREG);
@@ -239,10 +240,12 @@ PipeDE pipeDE(clk,OpCodeIFDOUT,InmCorrimIFDOUT,CodigoALU,MuxResult,MuxDirWrite,M
 				  MuxDirWriteDEOUT,MuxDirMemDEOUT,MuxDatoDEOUT,WriteMemDEOUT,WriteRegDEOUT,D0DEOUT,
 				  D1DEOUT,D2DEOUT,D3DEOUT,D4DEOUT,D5DEOUT,D6DEOUT,D7DEOUT,D8DEOUT,D9DEOUT,D10DEOUT,
 				  D11DEOUT,D12DEOUT,D13DEOUT,D14DEOUT,D15DEOUT,D16DEOUT,D17DEOUT,D18DEOUT,D19DEOUT,
-				  D20DEOUT,D21DEOUT,D22DEOUT,D23DEOUT,D24DEOUT,ValADEOUT,ValBDEOUT,DirWriteDEOUT,OpCodeIDEXOUT,InmCorrimDEXOUT);
+				  D20DEOUT,D21DEOUT,D22DEOUT,D23DEOUT,D24DEOUT,D25DEOUT,D26DEOUT,
+				  D27DEOUT,D28DEOUT,D29DEOUT,D30DEOUT,D31DEOUT,ValADEOUT,ValBDEOUT,DirWriteDEOUT,OpCodeIDEXOUT);
 
 						 
 ALU alu(ValADEOUT,ValBDEOUT,CodigoALUDEOUT,resultALU,flagsALU);
+vect_unit vect(ValADEOUT, ValBDEOUT, InmCorrimDEXOUT[7:0], aluMux, CodigoALUDEOUT, out, flags);
 
 Mux4x1 MuxResultSelect(ValADEOUT,numMayor,resultALU,valorNull,MuxResultDEOUT,DatoResp);
 

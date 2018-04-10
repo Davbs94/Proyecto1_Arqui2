@@ -12,7 +12,7 @@ module ControlUnit(
 	 output reg MuxDirMemIN,
 	 output reg MuxDatoIN,
 	 output reg WriteMemIN,
-	 output reg WriteRegIN
+	 output reg WriteRegIN, aluMux
     );
 
 initial begin
@@ -27,6 +27,7 @@ initial begin
 	 MuxDatoIN <= 0;
 	 WriteMemIN <= 0;
 	 WriteRegIN <= 0;
+	 aluMux <= 0;	 
 end
 
 always @(*)
@@ -45,6 +46,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 0;
 	end
 	//suma inmediato
 	else if(Opcode == 5'b00001)
@@ -60,6 +62,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 0;
 	end
 	//resta registro
 	else if(Opcode == 5'b00010)
@@ -75,6 +78,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 0;
 	end
 	//resta inmediato
 	else if(Opcode == 5'b00011)
@@ -90,6 +94,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 0;
 	end
 	//comparar registros
 	else if(Opcode == 5'b00100)
@@ -105,6 +110,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		aluMux <= 0;
 	end
 	//comparar inmediato
 	else if(Opcode == 5'b00101)
@@ -120,6 +126,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 0;
 	end
 	//and
 	else if(Opcode == 5'b00110)
@@ -135,6 +142,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 0;
 	end
 	//or
 	else if(Opcode == 5'b00111)
@@ -150,6 +158,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 0;
 	end
 	//not
 	else if(Opcode == 5'b01000)
@@ -165,6 +174,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 0;
 	end
 	//xor
 	else if(Opcode == 5'b01001)
@@ -180,6 +190,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 0;
 	end
 	//cargar registro LV - LW
 	else if(Opcode == 5'b01010)
@@ -195,6 +206,7 @@ begin
 		 MuxDatoIN <= 0;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 0;
 	end
 	//cargar inmediato LVI - LWI
 	else if(Opcode == 5'b01011)
@@ -210,6 +222,7 @@ begin
 		 MuxDatoIN <= 0;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 0;
 	end
 	//almacenar registro SV - SW
 	//preguntarmuxdato
@@ -226,6 +239,7 @@ begin
 		 MuxDatoIN <= 0;
 		 WriteMemIN <= 1;
 		 WriteRegIN <= 0;
+		 aluMux <= 0;
 	end
 	//almacenar inmediato
 	else if(Opcode == 5'b01101)
@@ -241,6 +255,7 @@ begin
 		 MuxDatoIN <= 0;
 		 WriteMemIN <= 1;
 		 WriteRegIN <= 0;
+		 aluMux <= 0;
 	end
 	//mover registro
 	else if(Opcode == 5'b01110)
@@ -256,6 +271,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 0;
 	end
 	//mover inmediato
 	else if(Opcode == 5'b01111)
@@ -271,6 +287,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 0;
 	end
 	//corrimiento a la izquierda(como se hace,quien lo hace?)
 	else if(Opcode == 5'b10000)
@@ -286,6 +303,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 0;
 	end
 	//corrimiento a la derecha(como se hace,quien lo hace?)
 	else if(Opcode == 5'b10001)
@@ -301,6 +319,7 @@ begin
 		 MuxDatoIN <= 0;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 0;
+		 aluMux <= 0;
 	end
 	//rotacion(como se hace,quien lo hace?)
 	else if(Opcode == 5'b10010)
@@ -316,6 +335,7 @@ begin
 		 MuxDatoIN <= 0;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 0;
+		 aluMux <= 0;
 	end
 	//salto
 	else if(Opcode == 5'b10011)
@@ -331,6 +351,7 @@ begin
 		 MuxDatoIN <= 0;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 0;
+		 aluMux <= 0;
 	end
 	//salto con condicion diferente
 	else if(Opcode == 5'b10100)
@@ -345,7 +366,8 @@ begin
 		MuxDirMemIN <= 1;
 		MuxDatoIN <= 1;
 		WriteMemIN <= 0;
-		WriteRegIN <= 0;		
+		WriteRegIN <= 0;	
+		aluMux <= 0;	
 	end
 	//salto con condicion igual 
 	else if(Opcode == 5'b10101)
@@ -361,6 +383,7 @@ begin
 		MuxDatoIN <= 1;
 		WriteMemIN <= 0;
 		WriteRegIN <= 0;
+		aluMux <= 0;
 	end
 	//salto con condicion diferente comparacion
 	else if(OpCodeIDEXOUT == 5'b10100)
@@ -378,6 +401,7 @@ begin
 			MuxDatoIN <= 0;
 			WriteMemIN <= 0;
 			WriteRegIN <= 0;
+			aluMux <= 0;
 		end
 		else
 		begin
@@ -392,6 +416,7 @@ begin
 			MuxDatoIN <= 1;
 			WriteMemIN <= 0;
 			WriteRegIN <= 0;
+			aluMux <= 0;
 		end
 	end
 	//salto con condicion igual comparacion
@@ -410,6 +435,7 @@ begin
 			MuxDatoIN <= 0;
 			WriteMemIN <= 0;
 			WriteRegIN <= 0;
+			aluMux <= 0;
 		end
 		else
 		begin
@@ -424,6 +450,7 @@ begin
 			MuxDatoIN <= 1;
 			WriteMemIN <= 0;
 			WriteRegIN <= 0;
+			aluMux <= 0;
 		end
 	end	
 	//mult
@@ -440,7 +467,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
-		 
+		 aluMux <= 0;
 	end
 	//NOP
 	else if(Opcode == 5'b10111)
@@ -456,6 +483,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 0;
+		 aluMux <= 0;
 	end
 	//ADDV
 	else if(Opcode == 5'b11000)
@@ -471,6 +499,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 0;
 	end
 	//ADDVI
 	else if(Opcode == 5'b11001)
@@ -486,6 +515,23 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 1;
+	end
+	//MULTI
+	else if(Opcode == 5'b11111)
+	begin
+		 MuxDireccionPC <= 0;
+		 MuxSelDirRegB <= 0;
+		 crtlMuxValA <= 0;
+		 crtlMuxValB <= 0;
+		 CodigoALUIN <= 4'b1000;
+		 MuxResultIN <= 2'b10;
+		 MuxDirWriteIN <= 0;
+		 MuxDirMemIN <= 1;
+		 MuxDatoIN <= 1;
+		 WriteMemIN <= 0;
+		 WriteRegIN <= 1;
+		 aluMux <= 1;
 	end
 	//XORV
 	else if(Opcode == 5'b11010)
@@ -501,6 +547,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 1;
 	end
 	//SLLV
 	else if(Opcode == 5'b11011)
@@ -516,6 +563,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 1;
 	end
 	//SRLV
 	else if(Opcode == 5'b11100)
@@ -531,6 +579,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 1;
 	end
 	//SLLVC
 	else if(Opcode == 5'b11101)
@@ -546,6 +595,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 1;
 	end
 	//SRLVC
 	else if(Opcode == 5'b11110)
@@ -561,6 +611,7 @@ begin
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
+		 aluMux <= 1;
 	end
 	else
 	begin
@@ -575,6 +626,7 @@ begin
 		 MuxDatoIN <= 0;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 0;
+		 aluMux <= 0;
 	end
 end
 endmodule

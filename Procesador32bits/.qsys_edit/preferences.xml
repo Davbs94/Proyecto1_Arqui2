@@ -3,11 +3,10 @@
  <debug showDebugMenu="0" />
  <systemtable filter="All Interfaces">
   <columns>
-   <connections preferredWidth="63" />
+   <connections preferredWidth="47" />
    <irq preferredWidth="34" />
   </columns>
  </systemtable>
- <library
-   expandedCategories="Library/Interface Protocols/Serial,Library/University Program/Generic IO,Library/University Program/Clock,Library/University Program/Memory,Project,Library,Library/Interface Protocols/PCI Express,Library/Memory Interfaces and Controllers/Memory Interfaces with UniPHY,Library/Interface Protocols/Ethernet,Library/Processors and Peripherals/Embedded Processors,Library/Interface Protocols/SerialLite,Library/Interface Protocols,Library/Qsys Interconnect/Tri-State Components,Library/Processors and Peripherals/Hard Processor Components,Library/Interface Protocols/Audio &amp; Video,Library/Processors and Peripherals,Library/Processors and Peripherals/Hard Processor Systems,Library/Processors and Peripherals/Peripherals,Library/University Program/Bridges,Library/Low Power,Library/Interface Protocols/JESD,Library/Interface Protocols/PCI Express/QSYS Example Designs,Library/Memory Interfaces and Controllers/Flash,Library/Processors and Peripherals/Inter-Process Communication,Library/Qsys Interconnect/Interrupt,Library/Qsys Interconnect/Memory-Mapped,Library/Interface Protocols/Transceiver PLL,Library/Qsys Interconnect,Library/Qsys Interconnect/Memory-Mapped Alpha,Library/Interface Protocols/PCI Express/Example Design Components,Library/University Program/Audio &amp; Video/Video,Library/Memory Interfaces and Controllers/SDRAM,Library/University Program/Communications,Library/University Program/Audio &amp; Video,Library/Interface Protocols/Transceiver PHY,Library/Memory Interfaces and Controllers/Memory Interfaces with ALTMEMPHY,Library/Interface Protocols/Ethernet/1G Multi-rate Ethernet,Library/Memory Interfaces and Controllers,Library/University Program,Library/Processors and Peripherals/Co-Processors/Nios II Custom Instructions,Library/Interface Protocols/Ethernet/Reference Design Components,Library/Processors and Peripherals/Co-Processors" />
- <window width="1100" height="768" x="0" y="0" />
+ <library expandedCategories="Library,Project" />
+ <window width="1366" height="772" x="0" y="-4" />
 </preferences>

@@ -36,6 +36,13 @@ module PipeDE(
 	 input [31:0] D22IN,
 	 input [31:0] D23IN,
 	 input [31:0] D24IN,
+	 input [31:0] D25IN,
+	 input [31:0] D26IN,
+	 input [31:0] D27IN,
+	 input [31:0] D28IN,
+	 input [31:0] D29IN,
+	 input [31:0] D30IN,
+	 input [31:0] D31IN,
 	 
 	 input [31:0] ValAIN,
 	 input [31:0] ValBIN,
@@ -76,6 +83,14 @@ module PipeDE(
 	 output [31:0] D22OUT,
 	 output [31:0] D23OUT,
 	 output [31:0] D24OUT,
+	 output [31:0] D25OUT,
+	 output [31:0] D26OUT,
+	 output [31:0] D27OUT,
+	 output [31:0] D28OUT,
+	 output [31:0] D29OUT,
+	 output [31:0] D30OUT,
+	 output [31:0] D31OUT,
+	
 	 
 	 output [31:0] ValAOUT,
 	 output [31:0] ValBOUT,
@@ -118,6 +133,13 @@ module PipeDE(
 	 reg [31:0] D22TMP;
 	 reg [31:0] D23TMP;
 	 reg [31:0] D24TMP;
+	 reg [31:0] D25TMP;
+	 reg [31:0] D26TMP;
+	 reg [31:0] D27TMP;
+	 reg [31:0] D28TMP;
+	 reg [31:0] D29TMP;
+	 reg [31:0] D30TMP;
+	 reg [31:0] D31TMP;
 	 
 	 reg [31:0] ValATMP;
 	 reg [31:0] ValBTMP;
@@ -161,6 +183,13 @@ begin
 	 D22TMP = D22IN;
 	 D23TMP = D23IN;
 	 D24TMP = D24IN;
+	 D25TMP = D25IN;
+	 D26TMP = D26IN;
+	 D27TMP = D27IN;
+	 D28TMP = D28IN;
+	 D29TMP = D29IN;
+	 D30TMP = D30IN;
+	 D31TMP = D31IN;
 	 
 	 ValATMP = ValAIN;
 	 ValBTMP = ValBIN;
@@ -205,6 +234,13 @@ end
 	 assign D22OUT = D22TMP;
 	 assign D23OUT = D23TMP;
 	 assign D24OUT = D24TMP;
+	 assign D25OUT = D25TMP;
+	 assign D26OUT = D26TMP;
+	 assign D27OUT = D27TMP;
+	 assign D28OUT = D28TMP;
+	 assign D29OUT = D29TMP;
+	 assign D30OUT = D30TMP;
+	 assign D31OUT = D31TMP;
 	 
 	 assign ValAOUT = ValATMP;
 	 assign ValBOUT = ValBTMP;

@@ -20,6 +20,7 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
+
 </modelsim_script>
 <modelsim_script_timing>onerror {exit -code 1}
 vlib work
@@ -38,6 +39,7 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
+
 </modelsim_script_timing>
 <hdl_lang>verilog</hdl_lang>
 </simulation_settings>*/
@@ -1647,7 +1649,8 @@ TRANSITION_LIST("B[11]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 800.0;
+		LEVEL 1 FOR 200.0;
 	}
 }
 
@@ -1656,7 +1659,13 @@ TRANSITION_LIST("B[10]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 400.0;
+			LEVEL 1 FOR 400.0;
+		}
+		LEVEL 0 FOR 200.0;
 	}
 }
 
@@ -1665,7 +1674,13 @@ TRANSITION_LIST("B[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 0 FOR 200.0;
+			LEVEL 1 FOR 200.0;
+		}
+		LEVEL 0 FOR 200.0;
 	}
 }
 
@@ -1674,7 +1689,12 @@ TRANSITION_LIST("B[8]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		NODE
+		{
+			REPEAT = 5;
+			LEVEL 0 FOR 100.0;
+			LEVEL 1 FOR 100.0;
+		}
 	}
 }
 
@@ -1719,8 +1739,7 @@ TRANSITION_LIST("B[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 800.0;
-		LEVEL 1 FOR 200.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1729,13 +1748,7 @@ TRANSITION_LIST("B[2]")
 	NODE
 	{
 		REPEAT = 1;
-		NODE
-		{
-			REPEAT = 1;
-			LEVEL 0 FOR 400.0;
-			LEVEL 1 FOR 400.0;
-		}
-		LEVEL 0 FOR 200.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1744,13 +1757,7 @@ TRANSITION_LIST("B[1]")
 	NODE
 	{
 		REPEAT = 1;
-		NODE
-		{
-			REPEAT = 2;
-			LEVEL 0 FOR 200.0;
-			LEVEL 1 FOR 200.0;
-		}
-		LEVEL 0 FOR 200.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1759,12 +1766,7 @@ TRANSITION_LIST("B[0]")
 	NODE
 	{
 		REPEAT = 1;
-		NODE
-		{
-			REPEAT = 5;
-			LEVEL 0 FOR 100.0;
-			LEVEL 1 FOR 100.0;
-		}
+		LEVEL 0 FOR 1000.0;
 	}
 }
 

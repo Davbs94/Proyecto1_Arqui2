@@ -31,9 +31,13 @@ module RegisterBank(
 	 output [31:0] D22,
 	 output [31:0] D23,
 	 output [31:0] D24,
-	 
-	 //------prueba
 	 output [31:0] D25,
+	 output [31:0] D26,
+	 output [31:0] D27,
+	 output [31:0] D28,
+	 output [31:0] D29,
+	 output [31:0] D30,
+	 output [31:0] D31,	 
 	 
     output [31:0] OutputA,
     output [31:0] OutputB
@@ -110,8 +114,14 @@ assign D21 = RF[21];
 assign D22 = RF[22];
 assign D23 = RF[23];
 assign D24 = RF[24];
-
 assign D25 = RF[25];
+assign D26 = RF[26];
+assign D27 = RF[27];
+assign D28 = RF[28];
+assign D29 = RF[29];
+assign D30 = RF[30];
+assign D31 = RF[31];
+
 
 
 assign OutputA = RF[DirA];

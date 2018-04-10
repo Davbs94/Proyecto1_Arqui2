@@ -4,8 +4,7 @@ module alu_8 (
     input [3:0] CtrlFunc,
     output reg signed [7:0] Result
 	 );
-
-
+	 
 initial begin
 Result <= 0;
 end
@@ -36,12 +35,13 @@ else if (CtrlFunc == 4'b1001) //right shift
 else if (CtrlFunc == 4'b1010) //left shift
 	Result <= A << B;
 else if (CtrlFunc == 4'b1011) begin// circular left shift
-	Result <= A << B;
-	Result <= Result | A;	
+	Result <= ((A << B) | (A >> (8 - B)));
 	end
-else if (CtrlFunc == 4'b1100) begin// circular right shift
-	Result <= A >> B;
-	Result <= Result | A;	
+else if (CtrlFunc == 4'b1100) begin// circular right shift	
+	Result <= ((A >> B) | (A << (8 - B)));	
+	end
+else begin
+	Result <= 0;
 	end
 end
 endmodule
