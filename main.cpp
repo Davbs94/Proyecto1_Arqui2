@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
     }
 
     // This while loop parses the given command line arguments and call the respective functions.
-    while ((value = getopt_long(argc, argv, "f:x:r:l:c:v:1:2:3:4:s:n", longOptions, NULL)) != -1)
+    while ((value = getopt_long(argc, argv, "f:x:r:l:c:v:1:2:3:4:sn", longOptions, NULL)) != -1)
     {
         switch (value)
         {
