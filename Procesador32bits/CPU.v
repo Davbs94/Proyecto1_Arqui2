@@ -31,7 +31,9 @@ module CPU(
 	output wire [31:0]reg28,
 	output wire [31:0]reg29,
 	output wire [31:0]reg30,
-	output wire [31:0]reg31
+	output wire [31:0]reg31,
+
+	output wire [31:0] inst
 
 	);
 	
@@ -45,7 +47,7 @@ wire MuxDatoEMOUT;
 wire WriteMemEMOUT;
 wire WriteRegEMOUT;
 //---MEMINTRUC----
-wire [31:0] inst,DatoWBIN;
+wire [31:0] DatoWBIN; //inst;
 //---MUXDIRECCION-
 wire [1:0] crtlMuxDireccionPC;
 
@@ -211,7 +213,7 @@ PC pc(clk,newpc,pcout);
 
 Mux4x1 MuxDireccionPC(outpc4,DireccionIFDOUT, InmCorrimDEXOUT, valorNull,crtlMuxDireccionPC,newpc);
 
-//MemInst memInst(pcout,clk,inst);
+MemInst memInst(pcout,clk,inst);
 
 PipeIFD pipeIFD(clk,inst,OpCodeIFDOUT,DireccionIFDOUT,DirRegAIFDOUT,DirRegBIFDOUT,InmCorrimIFDOUT,
 					DirWriteIFDOUT);
@@ -257,7 +259,7 @@ PipeEM pipeEm(clk,MuxDirMemDEOUT,MuxDatoDEOUT,WriteMemDEOUT,WriteRegDEOUT,ValADE
 
 Mux2x1 muxDirMem(DirMemCargaEMOUT,DirMemRegBOUT,MuxDirMemEMOUT,DirMemResult);
 
-//MemDatos memDatos(ValAREG,clk,DatoResultEMOUT,WriteMemEMOUT,DatoOutMem);	
+MemDatos memDatos(ValAREG,clk,DatoResultEMOUT,WriteMemEMOUT,DatoOutMem);	
 
 Mux2x1 muxDato(DatoOutMem,DatoResultEMOUT,MuxDatoEMOUT,DatoWBIN);
 

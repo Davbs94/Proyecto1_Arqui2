@@ -506,8 +506,8 @@ begin
 	begin
 		 MuxDireccionPC <= 0;
 		 MuxSelDirRegB <= 0;
-		 crtlMuxValA <= 0;
-		 crtlMuxValB <= 1;
+		 crtlMuxValA <= 1;
+		 crtlMuxValB <= 0;
 		 CodigoALUIN <= 4'b0011;
 		 MuxResultIN <= 2'b10;
 		 MuxDirWriteIN <= 0;
@@ -517,21 +517,21 @@ begin
 		 WriteRegIN <= 1;
 		 aluMux <= 1;
 	end
-	//MULTI
+	//RESTV
 	else if(Opcode == 5'b11111)
 	begin
 		 MuxDireccionPC <= 0;
 		 MuxSelDirRegB <= 0;
 		 crtlMuxValA <= 0;
 		 crtlMuxValB <= 0;
-		 CodigoALUIN <= 4'b1000;
+		 CodigoALUIN <= 4'b0100;
 		 MuxResultIN <= 2'b10;
 		 MuxDirWriteIN <= 0;
 		 MuxDirMemIN <= 1;
 		 MuxDatoIN <= 1;
 		 WriteMemIN <= 0;
 		 WriteRegIN <= 1;
-		 aluMux <= 1;
+		 aluMux <= 0;
 	end
 	//XORV
 	else if(Opcode == 5'b11010)

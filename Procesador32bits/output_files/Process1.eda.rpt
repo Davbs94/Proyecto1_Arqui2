@@ -1,5 +1,5 @@
 EDA Netlist Writer report for Process1
-Fri Mar 30 11:20:05 2018
+Tue Apr 10 11:33:52 2018
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Fri Mar 30 11:20:05 2018 ;
+; EDA Netlist Writer Status ; Successful - Tue Apr 10 11:33:52 2018 ;
 ; Revision Name             ; Process1                              ;
 ; Top-level Entity Name     ; Tester                                ;
 ; Family                    ; Cyclone V                             ;
@@ -66,13 +66,13 @@ agreement for further details.
 +---------------------------------------------------------------------------------------------------+---------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Simulation Generated Files                                                                                        ;
-+-------------------------------------------------------------------------------------------------------------------+
-; Generated Files                                                                                                   ;
-+-------------------------------------------------------------------------------------------------------------------+
-; /home/jairo-mm26/Documents/Jairo/Documents/Arqui1/Proyecto1_Arqui_I/Procesador32bits/simulation/qsim//Process1.vo ;
-+-------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                                                                 ;
++----------------------------------------------------------------------------------------------------------------------------+
+; Generated Files                                                                                                            ;
++----------------------------------------------------------------------------------------------------------------------------+
+; /home/jairo-mm26/Documents/Jairo/Documents/Arqui2/Proyecto1/Proyecto1_Arqui2/Procesador32bits/simulation/qsim//Process1.vo ;
++----------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -95,15 +95,15 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: devices manufactured by Intel and sold by Intel or its 
     Info: authorized distributors.  Please refer to the applicable 
     Info: agreement for further details.
-    Info: Processing started: Fri Mar 30 11:20:03 2018
-Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=/home/jairo-mm26/Documents/Jairo/Documents/Arqui1/Proyecto1_Arqui_I/Procesador32bits/simulation/qsim/ Process1 -c Process1
+    Info: Processing started: Tue Apr 10 11:33:51 2018
+Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=/home/jairo-mm26/Documents/Jairo/Documents/Arqui2/Proyecto1/Proyecto1_Arqui2/Procesador32bits/simulation/qsim/ Process1 -c Process1
 Info (119006): Selected device 5CSEMA5F31C6 for design "Process1"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (204019): Generated file Process1.vo in folder "/home/jairo-mm26/Documents/Jairo/Documents/Arqui1/Proyecto1_Arqui_I/Procesador32bits/simulation/qsim//" for EDA simulation tool
+Info (204019): Generated file Process1.vo in folder "/home/jairo-mm26/Documents/Jairo/Documents/Arqui2/Proyecto1/Proyecto1_Arqui2/Procesador32bits/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 1134 megabytes
-    Info: Processing ended: Fri Mar 30 11:20:05 2018
-    Info: Elapsed time: 00:00:02
+    Info: Peak virtual memory: 1139 megabytes
+    Info: Processing ended: Tue Apr 10 11:33:52 2018
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 

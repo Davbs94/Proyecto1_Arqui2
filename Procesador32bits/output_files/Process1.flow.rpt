@@ -1,5 +1,5 @@
 Flow report for Process1
-Tue Apr 10 09:51:29 2018
+Tue Apr 10 11:33:52 2018
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Tue Apr 10 09:51:29 2018       ;
+; Flow Status                     ; Successful - Tue Apr 10 11:33:52 2018       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; Process1                                    ;
 ; Top-level Entity Name           ; Tester                                      ;
@@ -49,10 +49,10 @@ agreement for further details.
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 0                                           ;
-; Total pins                      ; 22                                          ;
+; Total registers                 ; 52                                          ;
+; Total pins                      ; 33                                          ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 0                                           ;
+; Total block memory bits         ; 2,097,152                                   ;
 ; Total DSP Blocks                ; 0                                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/10/2018 09:51:13 ;
+; Start date & time ; 04/10/2018 11:30:16 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Process1            ;
 +-------------------+---------------------+
@@ -79,12 +79,23 @@ agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 207732464048536.152337547306699        ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 207732464048536.152338141609983        ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim (Verilog)                     ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --             ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --             ;
+; MISC_FILE                           ; MemInst.bsf                            ; --            ; --          ; --             ;
+; MISC_FILE                           ; MemInst_inst.v                         ; --            ; --          ; --             ;
+; MISC_FILE                           ; MemInst_bb.v                           ; --            ; --          ; --             ;
+; MISC_FILE                           ; MemInst.inc                            ; --            ; --          ; --             ;
+; MISC_FILE                           ; MemInst.cmp                            ; --            ; --          ; --             ;
+; MISC_FILE                           ; MemDatos.bsf                           ; --            ; --          ; --             ;
+; MISC_FILE                           ; MemDatos_inst.v                        ; --            ; --          ; --             ;
+; MISC_FILE                           ; MemDatos_bb.v                          ; --            ; --          ; --             ;
+; MISC_FILE                           ; MemDatos.inc                           ; --            ; --          ; --             ;
+; MISC_FILE                           ; MemDatos.cmp                           ; --            ; --          ; --             ;
+; MISC_FILE                           ; MemDatos_syn.v                         ; --            ; --          ; --             ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; Tester      ; Top            ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; Tester      ; Top            ;
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; Tester      ; Top            ;
@@ -100,8 +111,10 @@ agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:20     ; 1.0                     ; 970 MB              ; 00:00:40                           ;
-; Total                ; 00:00:20     ; --                      ; --                  ; 00:00:40                           ;
+; Analysis & Synthesis ; 00:00:20     ; 1.0                     ; 1041 MB             ; 00:00:45                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 1130 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 1139 MB             ; 00:00:01                           ;
+; Total                ; 00:00:23     ; --                      ; --                  ; 00:00:47                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -111,6 +124,8 @@ agreement for further details.
 ; Module Name          ; Machine Hostname ; OS Name        ; OS Version ; Processor type ;
 +----------------------+------------------+----------------+------------+----------------+
 ; Analysis & Synthesis ; jairo            ; Ubuntu 16.04.4 ; 16         ; x86_64         ;
+; EDA Netlist Writer   ; jairo            ; Ubuntu 16.04.4 ; 16         ; x86_64         ;
+; EDA Netlist Writer   ; jairo            ; Ubuntu 16.04.4 ; 16         ; x86_64         ;
 +----------------------+------------------+----------------+------------+----------------+
 
 
@@ -118,6 +133,8 @@ agreement for further details.
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off Process1 -c Process1
+quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off Process1 -c Process1 --vector_source=/home/jairo-mm26/Documents/Jairo/Documents/Arqui2/Proyecto1/Proyecto1_Arqui2/Procesador32bits/Waveform1.vwf --testbench_file=/home/jairo-mm26/Documents/Jairo/Documents/Arqui2/Proyecto1/Proyecto1_Arqui2/Procesador32bits/simulation/qsim/Waveform1.vwf.vt
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=/home/jairo-mm26/Documents/Jairo/Documents/Arqui2/Proyecto1/Proyecto1_Arqui2/Procesador32bits/simulation/qsim/ Process1 -c Process1
 
 
 
