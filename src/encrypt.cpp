@@ -89,7 +89,7 @@ int encrypt::encryptSum(int originalValue, int sumValue, bool sum)
         int result = originalValue + sumValue;
         if (result > 255)
         {
-            return 255;
+            return result - 255;
         }
         else
         {
@@ -101,7 +101,7 @@ int encrypt::encryptSum(int originalValue, int sumValue, bool sum)
         int result = originalValue - sumValue;
         if (result < 0)
         {
-            return 0;
+            return 255 + result;
         }
         else
         {
